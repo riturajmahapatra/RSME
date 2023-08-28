@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import "./style.css";
+import '@/app/components/style.css'
 
 const Footer = () => {
   return (

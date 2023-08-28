@@ -1,8 +1,8 @@
 import BannerCarousel from "@/components/ui/carousel";
-import Nav from "./components/Nav";
+import Nav from "./(layout)/Nav";
 import Header from "./components/Header";
 import Hero from "@/app/components/Hero";
-import Footer from "./components/Footer";
+import Footer from "./(layout)/Footer";
 export default function Home() {
   const images: string[] = [
     "/img1.jpg",
