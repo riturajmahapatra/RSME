@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/popover";
 import { ContextAccess } from "../components/ContextAccess";
 import Modal from "../components/Modal";
+import UserMenu from "../components/navbar/UserMenu";
 
 type NavType = {};
 const Nav = ({}: NavType) => {
@@ -79,11 +80,7 @@ const Nav = ({}: NavType) => {
               </Button>
             </Link>
 
-            <Link href={"/login"}>
-              <Button className=" text-[1.1rem] font-semibold glow-on-hover">
-                Login
-              </Button>
-            </Link>
+            <UserMenu />
           </ul>
         </div>
       </nav>
