@@ -7,6 +7,7 @@ import Footer from "./(layout)/Footer";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
+import ToasterProvider from "./providers/ToasterProvider";
 
 const Font = Urbanist({ subsets: ["latin"] });
 
@@ -24,11 +25,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={Font.className}>
         <Lang>
-          <ClientOnly>
+
+            <ToasterProvider />
             <RegisterModal />
             <LoginModal />
             <Nav />
-          </ClientOnly>
+
           {children}
           <Footer />
         </Lang>

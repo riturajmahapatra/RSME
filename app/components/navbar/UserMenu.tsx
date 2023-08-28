@@ -32,7 +32,7 @@ const UserMenu = () => {
                 cursor-pointer
                 "
                 >
-                Airbnb your Home
+                
                 </div>
                 <div onClick={toggleOpen}
                 className="
