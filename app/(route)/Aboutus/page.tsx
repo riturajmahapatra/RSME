@@ -2,9 +2,9 @@
 "use client";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
-import Footer from "../components/Footer";
-import Herocard from "../components/Herocard";
-import { ContextAccess } from "../components/ContextAccess";
+import Footer from "../../(layout)/Footer";
+import Herocard from "../../components/Herocard";
+import { ContextAccess } from "../../components/ContextAccess";
 
 const page = () => {
   const { isHindi } = ContextAccess();

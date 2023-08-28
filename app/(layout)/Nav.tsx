@@ -11,11 +11,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ContextAccess } from "./ContextAccess";
+import { ContextAccess } from "../components/ContextAccess";
+import Modal from "../components/Modal";
 
 type NavType = {};
 const Nav = ({}: NavType) => {
   const { toggleLang } = ContextAccess();
+
+  // write the logic for modal component open here in button of login
+
   return (
     <main className="fixed z-10 bg-white w-full border-b-2 border-slate-200">
       <nav className="flex mx-[40px] my-2 ">
@@ -40,7 +44,8 @@ const Nav = ({}: NavType) => {
           </div>
         </Link>
         <div className="flex flex-1 gap-10 items-center  justify-end">
-          <Dropdown />
+          {/* The Dropdown comp will be used in new page. */}
+          {/* <Dropdown /> */}
           <ul className="gap-[30px]  flex items-center justify-center">
             <div className="flex justify-center items-center">
               <Switch onClick={() => toggleLang()} />
@@ -67,9 +72,12 @@ const Nav = ({}: NavType) => {
             <Button className="border text-[1.1rem] font-bold border-blue-500 bg-transparent text-black hover:text-[#036C93] hover:bg-white">
               Donate
             </Button>
-            <Button className=" text-[1.1rem] font-semibold glow-on-hover">
-              Login
-            </Button>
+
+            <Link href={"/login"}>
+              <Button className=" text-[1.1rem] font-semibold glow-on-hover">
+                Login
+              </Button>
+            </Link>
           </ul>
         </div>
       </nav>
