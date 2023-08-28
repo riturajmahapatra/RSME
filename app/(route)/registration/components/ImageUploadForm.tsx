@@ -1,8 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
-
-const ImageUploadForm: React.FC = () => {
+type ImageUploadFormProps = {
+  formType: "Father" | "Mother" | "Student" ;
+  cardType: "Adhar" | "Voter" | "Optional" | 'SchoolId';
+  PositionType: "Front" | "Back";
+  state: FormStateType;
+  dispatch: React.Dispatch<FormAction>;
+};
+const ImageUploadForm = ({
+  formType,
+  cardType,
+  PositionType,
+  state,
+  dispatch,
+}: ImageUploadFormProps) => {
   const [selectedImage, setSelectedImage] = useState<File | undefined>(
     undefined
   );
@@ -14,6 +26,11 @@ const ImageUploadForm: React.FC = () => {
       setSelectedImage(imageFile);
       setPreviewUrl(URL.createObjectURL(imageFile));
     }
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: `${formType}${cardType}Card${PositionType}`,
+      payload: imageFile,
+    });
   };
 
   return (

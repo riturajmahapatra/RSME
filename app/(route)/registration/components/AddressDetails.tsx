@@ -77,9 +77,9 @@ const AddressDetails = () => {
             required
           />
         </div>
-
-
       </div>
+      <button>Submit</button>
+
     </>
   );
 };
