@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from "react";
 type ImageUploadFormProps = {
-  formType: "Father" | "Mother" | "Student" ;
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer" ;
   cardType: "Adhar" | "Voter" | "Optional" | 'SchoolId';
   PositionType: "Front" | "Back";
   state: FormStateType;

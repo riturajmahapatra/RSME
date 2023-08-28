@@ -3,7 +3,7 @@ import ImageUploadForm from "./ImageUploadForm";
 
 /* eslint-disable @next/next/no-img-element */
 type NameProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
@@ -68,7 +68,7 @@ export const Name = ({ formType, state, dispatch }: NameProps) => {
 // ----------------------------------------------------------------------
 
 type PhoneProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   isRequired: boolean;
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
@@ -120,7 +120,7 @@ export const PhoneNo = ({
 // ---------------------------------------------
 
 type BloodGroupProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   isRequired: boolean;
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
@@ -160,7 +160,7 @@ export const BloodGroup = ({
 // ---------------------------------------------
 
 type EmailProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   isRequired: boolean;
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
@@ -199,7 +199,7 @@ export const Email = ({
 // ---------------------------------------------
 
 type IdProofProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
@@ -216,7 +216,10 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
     <>
       <span className="text-lg font-semibold">{`ID Proof:`}</span>
       <div className="flex flex-col gap-5">
-        {(formType === "Father" || formType === "Mother") && (
+        {(formType === "Father" ||
+          formType === "Mother" ||
+          formType === "Teacher" ||
+          formType === "Volunteer") && (
           <>
             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
               <FrontBackImage
@@ -307,7 +310,7 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
 //  ---------------------------------------------
 type FrontBackImageProps = {
   cardType: "Adhar" | "Voter" | "Optional" | "SchoolId";
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };

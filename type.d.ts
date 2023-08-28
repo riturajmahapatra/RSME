@@ -48,6 +48,34 @@ type FormStateType = {
   // Payment Details
   PaymentAmount: string;
   PaymentStatus: string;
+
+  // Teacher Details
+  TeacherFirstName: string;
+  TeacherMiddleName: string;
+  TeacherLastName: string;
+  TeacherPhoneNo: string;
+  TeacherEmail: string;
+  TeacherBloodGroup: string;
+  TeacherAdharCardFront: File | null;
+  TeacherAdharCardBack: File | null;
+  TeacherVoterCardFront: File | null;
+  TeacherVoterCardBack: File | null;
+  TeacherOptionalCardFront: File | null;
+  TeacherOptionalCardBack?: File | null;
+
+  // Volunteer Details
+  VolunteerFirstName: string;
+  VolunteerMiddleName: string;
+  VolunteerLastName: string;
+  VolunteerPhoneNo: string;
+  VolunteerEmail: string;
+  VolunteerBloodGroup: string;
+  VolunteerAdharCardFront: File | null;
+  VolunteerAdharCardBack: File | null;
+  VolunteerVoterCardFront: File | null;
+  VolunteerVoterCardBack: File | null;
+  VolunteerOptionalCardFront: File | null;
+  VolunteerOptionalCardBack?: File | null;
 };
 
 type FormAction = {

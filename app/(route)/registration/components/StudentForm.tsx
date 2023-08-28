@@ -1,60 +1,8 @@
 "use client";
 import React, { Dispatch, useEffect, useReducer, useState } from "react";
 import { BloodGroup, Email, IdProf, Name, PhoneNo } from "./FormComp";
-
+import { initialState } from "./InitialState";
 // Remember : The IDProof also have multiple options like Aadhar, PAN, etc.
-const initialState: FormStateType = {
-  // Father Details
-  FatherFirstName: "",
-  FatherMiddleName: "",
-  FatherLastName: "",
-  FatherPhoneNo: "",
-  FatherEmail: "",
-  FatherBloodGroup: "",
-  FatherAdharCardFront: null,
-  FatherAdharCardBack: null,
-  FatherVoterCardFront: null,
-  FatherVoterCardBack: null,
-  FatherOptionalCardFront: null,
-  FatherOptionalCardBack: null,
-
-  // Mother Details
-  MotherFirstName: "",
-  MotherMiddleName: "",
-  MotherLastName: "",
-  MotherPhoneNo: "",
-  MotherEmail: "",
-  MotherBloodGroup: "",
-  MotherAdharCardFront: null,
-  MotherAdharCardBack: null,
-  MotherVoterCardFront: null,
-  MotherVoterCardBack: null,
-  MotherOptionalCardFront: null,
-  MotherOptionalCardBack: null,
-
-  // Student Details
-  StudentFirstName: "",
-  StudentMiddleName: "",
-  StudentLastName: "",
-  StudentPhoneNo: "",
-  StudentEmail: "",
-  StudentBloodGroup: "",
-  StudentAdharCardFront: "",
-  StudentAdharCardBack: "",
-  StudentSchoolIdCardFront: "",
-
-  // Address Details
-  Add: "",
-  State: "",
-  District: "",
-  City: "",
-  Area: "",
-  Pincode: "",
-
-  // Payment Details
-  PaymentAmount: "",
-  PaymentStatus: "",
-};
 
 const StudentFormReducer = (state: FormStateType, action: FormAction) => {
   switch (action.type) {
@@ -359,7 +307,14 @@ export const AddressFormDetails = ({
     });
   };
 
-  console.log(state.Add, state.Area , state.City , state.District , state.Pincode , state.State)
+  console.log(
+    state.Add,
+    state.Area,
+    state.City,
+    state.District,
+    state.Pincode,
+    state.State
+  );
   return (
     <>
       <div className="flex flex-col gap-5 p-10">
@@ -448,7 +403,15 @@ export const AddressFormDetails = ({
             />
           </div>
         </div>
-        <button>Submit</button>
+
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white rounded-full px-10 py-2"
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </>
   );
