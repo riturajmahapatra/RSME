@@ -286,12 +286,16 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
               />
             </div>
             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
-              <FrontBackImage
-                cardType={"SchoolId"}
-                formType={formType}
-                state={state}
-                dispatch={dispatch}
-              />
+              <span className="font-semibold text-lg ">{"School Id"} Card</span>
+              <div className="ml-28">
+                <ImageUploadForm
+                  formType={formType}
+                  cardType={"SchoolId"}
+                  PositionType={"Front"}
+                  state={state}
+                  dispatch={dispatch}
+                />
+              </div>
             </div>
           </>
         )}
@@ -315,7 +319,11 @@ export const FrontBackImage = ({
 }: FrontBackImageProps) => {
   return (
     <>
-      <span className="font-semibold text-lg ">{cardType} Card</span>
+      {cardType === "Optional" ? (
+        ""
+      ) : (
+        <span className="font-semibold text-lg ">{cardType} Card</span>
+      )}
       <div className="flex flex-col gap-5 ml-10">
         <div className="flex gap-10">
           <span className="font-semibold text-lg">Front</span>

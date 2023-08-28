@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { StudentForm } from "./Form";
+import { StudentForm } from "./StudentForm";
 
 const MainComp = () => {
   const [selectFormType, setSelectFormType] = useState<

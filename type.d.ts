@@ -35,11 +35,10 @@ type FormStateType = {
   StudentBloodGroup: string;
   StudentAdharCardFront: string;
   StudentAdharCardBack: string;
-  StudentSchoolIdCard: string;
+  StudentSchoolIdCardFront: string;
 
   // Address Details
-  HouseNo: string;
-  StreetName: string;
+  Add: string;
   Area: string;
   State: string;
   District: string;
