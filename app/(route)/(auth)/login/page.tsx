@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 const page = () => {
@@ -38,14 +39,7 @@ const page = () => {
                 >
                   Password
                 </label>
-                <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-semibold text-indigo-600 hover:text-indigo-500"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
+                
               </div>
               <div className="mt-2">
                 <input
@@ -72,12 +66,12 @@ const page = () => {
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
               {`Don't have an account yet?`}
               &nbsp;
-              <a
-                href="#"
+              <Link
+                href={"/signup"}
                 className="font-medium text-primary-600 hover:underline dark:text-primary-500"
               >
                 Sign up
-              </a>
+              </Link>
             </p>
           </div>
         </div>

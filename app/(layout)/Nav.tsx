@@ -51,9 +51,14 @@ const Nav = ({}: NavType) => {
               <Switch onClick={() => toggleLang()} />
               <h1 className="text-[1.1rem] font-semibold">&nbsp; हिंदी</h1>
             </div>
-            <Link href={"/membership"}>
+            <Link href={"/members"}>
               <Button className="border text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500 ">
-                Membership
+                Our Members
+              </Button>
+            </Link>
+            <Link href={"/registration"}>
+              <Button className="border text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500 ">
+                Registration
               </Button>
             </Link>
             <Link
@@ -68,10 +73,11 @@ const Nav = ({}: NavType) => {
             >
               Events
             </Link>
-
-            <Button className="border text-[1.1rem] font-bold border-blue-500 bg-transparent text-black hover:text-[#036C93] hover:bg-white">
-              Donate
-            </Button>
+            <Link href={"/Donation"}>
+              <Button className="border text-[1.1rem] font-bold border-blue-500 bg-transparent text-black hover:text-[#036C93] hover:bg-white">
+                Donate
+              </Button>
+            </Link>
 
             <Link href={"/login"}>
               <Button className=" text-[1.1rem] font-semibold glow-on-hover">
