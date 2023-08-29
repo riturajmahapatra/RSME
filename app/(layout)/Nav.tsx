@@ -74,11 +74,6 @@ const Nav = ({}: NavType) => {
             >
               Events
             </Link>
-            <Link href={"/Donation"}>
-              <Button className="border text-[1.1rem] font-bold border-blue-500 bg-transparent text-black hover:text-[#036C93] hover:bg-white">
-                Donate
-              </Button>
-            </Link>
 
             <UserMenu />
           </ul>
