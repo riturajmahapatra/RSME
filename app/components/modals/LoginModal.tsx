@@ -101,7 +101,7 @@ const LoginModal = () => {
         "
       >
         <p>
-          Already have an account?
+          Don't hava an account?
           <span
             className="
               text-neutral-800
@@ -110,7 +110,7 @@ const LoginModal = () => {
             "
           >
             {" "}
-            Log in
+            Register
           </span>
         </p>
       </div>

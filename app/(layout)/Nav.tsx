@@ -14,9 +14,13 @@ import {
 import { ContextAccess } from "../components/ContextAccess";
 import Modal from "../components/Modal";
 import UserMenu from "../components/navbar/UserMenu";
+import { User } from "@prisma/client";
 
-type NavType = {};
-const Nav = ({}: NavType) => {
+interface NavProps {
+  currentUser?: User | null;
+}
+
+const Nav: React.FC<NavProps> = ({ currentUser }) => {
   const { toggleLang } = ContextAccess();
 
   // write the logic for modal component open here in button of login
@@ -75,7 +79,7 @@ const Nav = ({}: NavType) => {
               Events
             </Link>
 
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </ul>
         </div>
       </nav>
