@@ -1,4 +1,3 @@
-import { type } from "os";
 import React from "react";
 import "./style.css";
 
@@ -6,7 +5,6 @@ type AlignmentCardsType = {
   heading: string;
   cardtext?: string;
   images: string;
-  /*   blob?: string; */
   isImageLeft?: boolean;
 };
 
@@ -15,9 +13,9 @@ const AlignmentCards = ({
   cardtext,
   images,
   isImageLeft,
-}: /*  blob,*/
+}:
 AlignmentCardsType) => {
-  // Conditionally apply classes based on customClasses prop
+
 
   return (
     <div
