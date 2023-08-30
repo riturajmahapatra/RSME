@@ -8,7 +8,22 @@ import RazorpayButton from "@/components/razorpaybutton";
 
 const Form = () => {
   const [fullName, setFullName] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [email, setEmail] = useState("");
+  const [panCard, setPanCard] = useState("");
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (isFormValid()) {
+      console.log("Form submitted!");
+    } else {
+      console.log("Please fill in all required fields.");
+    }
+  };
+
+  const isFormValid = () => {
+    return fullName !== "" && phoneNo !== "" && email !== "" && panCard !== "";
+  };
   return (
     <div className="container   mx-auto p-8">
       <form /* onSubmit={onSubmit} */ className="">
@@ -188,7 +203,7 @@ const Form = () => {
           </div>
 
           {/* Submit Button */}
-          <RazorpayButton amount={100} />
+          <RazorpayButton amount={100} disabled={!isFormValid()} />
 
           <Popover>
             <PopoverTrigger className="bg-blue-400 hover:bg-blue-300 rounded-md text-white text-lg">

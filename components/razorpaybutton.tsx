@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 
 interface RazorpayButtonProps {
   amount: number;
+  disabled: boolean;
 }
 
 const loadScript = (src: string, callback: () => void) => {
@@ -13,7 +14,10 @@ const loadScript = (src: string, callback: () => void) => {
   document.head.appendChild(script);
 };
 
-const RazorpayButton: React.FC<RazorpayButtonProps> = ({ amount }) => {
+const RazorpayButton: React.FC<RazorpayButtonProps> = ({
+  amount,
+  disabled,
+}) => {
   const [payment, setPayment] = useState<any>(null); // Use any for now
 
   useEffect(() => {
