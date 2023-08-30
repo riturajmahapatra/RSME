@@ -14,19 +14,23 @@ import {
 import { ContextAccess } from "../components/ContextAccess";
 import Modal from "../components/Modal";
 import UserMenu from "../components/navbar/UserMenu";
+import { User } from "@prisma/client";
 
-type NavType = {};
-const Nav = ({}: NavType) => {
+interface NavProps {
+  currentUser?: User | null;
+}
+
+const Nav: React.FC<NavProps> = ({ currentUser }) => {
   const { toggleLang } = ContextAccess();
 
   // write the logic for modal component open here in button of login
 
   return (
     <main className="fixed z-10 bg-white w-full border-b-2 border-slate-200">
-      <nav className="flex mx-[40px] my-2 ">
+      <nav className="flex flex-col md:flex-row mx-4 md:mx-8 lg:mx-16 my-2">
         <Link href={"/"}>
-          <div className="flex  gap-4  items-center justify-center">
-            <div className="relative h-20 w-20">
+          <div className="flex gap-2 items-center justify-center md:gap-4">
+            <div className="relative h-12 w-12  md:h-20 md:w-20">
               <Image
                 src={logo}
                 alt="Blob"
@@ -38,49 +42,44 @@ const Nav = ({}: NavType) => {
                 }}
               />
             </div>
-            <h1 className="uppercase font-bold text-3xl font-serif">
-              <span className="text-orange-500">Jan</span>{" "}
+            <h1 className="uppercase font-bold text-3xl max-md:text-4xl font-serif">
+              <span className="text-orange-500 ">Jan</span>{" "}
               <span className="text-[#036C93]">sevaa</span>{" "}
             </h1>
           </div>
         </Link>
-        <div className="flex flex-1 gap-10 items-center  justify-end">
-          {/* The Dropdown comp will be used in new page. */}
-          {/* <Dropdown /> */}
-          <ul className="gap-[30px]  flex items-center justify-center">
-            <div className="flex justify-center items-center">
+        <div className="flex flex-1 gap-2 md:gap-10 items-center justify-end mt-2 md:mt-0">
+          <ul className="flex flex-col md:flex-row max-md:hidden gap-2 md:gap-4 md:items-center">
+            <div className="flex items-center">
               <Switch onClick={() => toggleLang()} />
-              <h1 className="text-[1.1rem] font-semibold">&nbsp; हिंदी</h1>
+              <h1 className="text-xs md:text-[1.1rem] font-semibold">
+                &nbsp; हिंदी
+              </h1>
             </div>
             <Link href={"/members"}>
-              <Button className="border text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500 ">
+              <Button className="border text-xs md:text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500">
                 Our Members
               </Button>
             </Link>
             <Link href={"/registration"}>
-              <Button className="border text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500 ">
+              <Button className="border text-xs md:text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500">
                 Registration
               </Button>
             </Link>
             <Link
-              className="font-bold text-xl text-[#036c93]"
+              className="font-bold text-sm md:text-xl text-[#036c93]"
               href={"/Aboutus"}
             >
               About Us
             </Link>
             <Link
-              className="font-bold text-xl text-orange-500  "
+              className="font-bold text-sm md:text-xl text-orange-500"
               href={"/Events"}
             >
               Events
             </Link>
-            <Link href={"/Donation"}>
-              <Button className="border text-[1.1rem] font-bold border-blue-500 bg-transparent text-black hover:text-[#036C93] hover:bg-white">
-                Donate
-              </Button>
-            </Link>
 
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </ul>
         </div>
       </nav>
