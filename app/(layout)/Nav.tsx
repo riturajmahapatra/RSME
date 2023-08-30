@@ -15,9 +15,10 @@ import { ContextAccess } from "../components/ContextAccess";
 import Modal from "../components/Modal";
 import UserMenu from "../components/navbar/UserMenu";
 import { User } from "@prisma/client";
+import { SafeUser } from "../types";
 
 interface NavProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const Nav: React.FC<NavProps> = ({ currentUser }) => {
