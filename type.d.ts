@@ -30,8 +30,8 @@ type FormStateType = {
   StudentFirstName: string;
   StudentMiddleName: string;
   StudentLastName: string;
-  StudentPhoneNo: string;
-  StudentEmail: string;
+  StudentPhoneNo?: string;
+  StudentEmail?: string;
   StudentBloodGroup: string;
   StudentAdharCardFront: string;
   StudentAdharCardBack: string;
@@ -55,13 +55,18 @@ type FormStateType = {
   TeacherLastName: string;
   TeacherPhoneNo: string;
   TeacherEmail: string;
+  TeacherDOB: string;
   TeacherBloodGroup: string;
+  TeacherSex: string;
+  TeacherProfileCardFront: File | null;
   TeacherAdharCardFront: File | null;
   TeacherAdharCardBack: File | null;
   TeacherVoterCardFront: File | null;
   TeacherVoterCardBack: File | null;
-  TeacherOptionalCardFront: File | null;
-  TeacherOptionalCardBack?: File | null;
+  TeacherPanCardFront: File | null;
+  TeacherPassportCardFront?: File | null;
+  TeacherDrivingCardFront?: File | null;
+  TeacherDrivingCardBack?: File | null;
 
   // Volunteer Details
   VolunteerFirstName: string;
@@ -74,7 +79,7 @@ type FormStateType = {
   VolunteerAdharCardBack: File | null;
   VolunteerVoterCardFront: File | null;
   VolunteerVoterCardBack: File | null;
-  VolunteerOptionalCardFront: File | null;
+  VolunteerOptionalCardFront?: File | null;
   VolunteerOptionalCardBack?: File | null;
 };
 

@@ -127,7 +127,6 @@ type BloodGroupProps = {
 };
 export const BloodGroup = ({
   formType,
-  isRequired,
   state,
   dispatch,
 }: BloodGroupProps) => {
@@ -138,6 +137,7 @@ export const BloodGroup = ({
       payload: e.target.value,
     });
   };
+
   return (
     <>
       <span className="text-base font-semibold">{`Blood Group:`}</span>
@@ -146,10 +146,10 @@ export const BloodGroup = ({
         type="text"
         name="FatherPhoneNo"
         placeholder="Your Blood Group"
-        required={isRequired}
         value={state[`${formType}BloodGroup`]}
         onChange={handleBloodGroupChange}
       />
+      
       <abbr title="Help us match you with donors when urgent needs arise.">
         <img src="/info.svg" alt="Info" width={20} />
       </abbr>
@@ -186,7 +186,6 @@ export const Email = ({
         className="outline-none border-b-2 border-slate-200"
         type="email"
         name="FatherEmail"
-        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
         placeholder="Example@gmail.com"
         required={isRequired}
         value={state[`${formType}Email`]}
@@ -252,10 +251,10 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
                 <option value="Driving License">Driving License</option>
                 <option value="Passport">Passport</option>
               </select>
-              {selectedIdProof === "Driving License" ? (
+              {selectedIdProof === "Driving" ? (
                 <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
                   <FrontBackImage
-                    cardType={"Optional"}
+                    cardType={"Driving"}
                     formType={formType}
                     state={state}
                     dispatch={dispatch}
@@ -267,7 +266,7 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
                 <>
                   <ImageUploadForm
                     formType={formType}
-                    cardType={"Optional"}
+                    cardType={"Passport"}
                     PositionType={"Front"}
                     state={state}
                     dispatch={dispatch}
@@ -309,7 +308,14 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
 
 //  ---------------------------------------------
 type FrontBackImageProps = {
-  cardType: "Adhar" | "Voter" | "Optional" | "SchoolId";
+  cardType:
+    | "Adhar"
+    | "Voter"
+    | "SchoolId"
+    | "Pan"
+    | "Passport"
+    | "Driving"
+    | "Profile";
   formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
@@ -322,7 +328,7 @@ export const FrontBackImage = ({
 }: FrontBackImageProps) => {
   return (
     <>
-      {cardType === "Optional" ? (
+      {cardType === "Driving" ? (
         ""
       ) : (
         <span className="font-semibold text-lg ">{cardType} Card</span>

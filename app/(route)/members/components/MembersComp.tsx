@@ -12,6 +12,7 @@ import {
   TableHeader,
 } from "@/components/ui/table";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 type State = {
   state: string;
@@ -46,6 +47,22 @@ export const MembersComp = () => {
   const [memberLoading, setMemberLoading] = useState(true);
 
   // Push the state and district to the backend and get the branch data from there
+  useEffect(() => {
+    if (selectedDistrict && selectedState) {
+      axios
+        .get(
+          `${process.env.API_REQUEST_URL}/api/branch/${selectedState}/${selectedDistrict}`
+        )
+        .then((res) => {
+          console.log(res.data);
+          setBranchLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setBranchLoading(false);
+        });
+    }
+  }, [selectedState, selectedDistrict]);
 
   const [selectBranch, setSelectBranch] = useState<number | null>(null);
 
@@ -80,7 +97,7 @@ export const MembersComp = () => {
   const MemberDetailsDummyData = {
     id: 1,
     image: "./EventCardTest.avif",
-    memberName: "Amit Grewal",
+    memberName: "Mr. Amit Grewal",
     memberPost: "President",
     memberPhone: "1234567890",
     memberEmail: "jdfjadkl@gmail.com",
@@ -109,25 +126,31 @@ export const MembersComp = () => {
           />
         </div>
         <div className="border w-full my-10" />
-        <div className="flex gap-10 redborder">
-          <BranchTable
-            isLoading={branchLoading}
-            selectBranch={selectBranch}
-            setSelectBranch={setSelectBranch}
-            branchData={BranchDummyData}
-          />
-          <MemberTable
-            isLoading={memberLoading}
-            selectMember={selectMember}
-            setSelectMember={setSelectMember}
-            memberData={MemberDummyData}
-          />
-          <MemberDetails
-            isLoading={memberLoading}
-            selectMember={selectMember}
-            setSelectMember={setSelectMember}
-            memberDetailsData={MemberDetailsDummyData}
-          />
+        <div className="flex gap-10">
+          <div className="mt-10 h-fit w-1/4 border rounded-lg">
+            <BranchTable
+              isLoading={branchLoading}
+              selectBranch={selectBranch}
+              setSelectBranch={setSelectBranch}
+              branchData={BranchDummyData}
+            />
+          </div>
+          <div className="mt-10 h-fit w-1/3 border rounded-lg">
+            <MemberTable
+              isLoading={memberLoading}
+              selectMember={selectMember}
+              setSelectMember={setSelectMember}
+              memberData={MemberDummyData}
+            />
+          </div>
+          <div className="mt-10 h-fit flex justify-center w-1/3 rounded-lg">
+            <MemberDetails
+              isLoading={memberLoading}
+              selectMember={selectMember}
+              setSelectMember={setSelectMember}
+              memberDetailsData={MemberDetailsDummyData}
+            />
+          </div>
         </div>
       </div>
     </>
@@ -150,30 +173,28 @@ export const BranchTable: React.FC<BranchTableProps> = ({
 }) => {
   return (
     <>
-      <div className="mt-10 h-fit w-1/4 border rounded-lg">
-        <Table>
-          <TableHeader>
-            <TableRow className="">
-              <TableHead className="font-bold text-center text-lg">
-                Branch
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="cursor-pointer">
-            {branchData.map((branch) => (
-              <>
-                <BranchTableRow
-                  isLoading={isLoading}
-                  selectBranch={selectBranch}
-                  setSelectBranch={setSelectBranch}
-                  branchId={branch.id}
-                  branch={branch.branchName}
-                />
-              </>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+      <Table>
+        <TableHeader>
+          <TableRow className="">
+            <TableHead className="font-bold text-center text-lg">
+              Branch
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="cursor-pointer">
+          {branchData.map((branch) => (
+            <>
+              <BranchTableRow
+                isLoading={isLoading}
+                selectBranch={selectBranch}
+                setSelectBranch={setSelectBranch}
+                branchId={branch.id}
+                branch={branch.branchName}
+              />
+            </>
+          ))}
+        </TableBody>
+      </Table>
     </>
   );
 };
@@ -231,30 +252,28 @@ export const MemberTable = ({
 }: MemberTableProps) => {
   return (
     <>
-      <div className="mt-10 h-fit w-1/3 border rounded-lg">
-        <Table>
-          <TableHeader>
-            <TableRow className="w-[100px] ">
-              <TableHead className="font-bold  text-lg">Post</TableHead>
-              <TableHead className="font-bold  text-lg">Member Name</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="cursor-pointer">
-            {memberData.map((member) => (
-              <>
-                <MembersTableRow
-                  isLoading={isLoading}
-                  selectMember={selectMember}
-                  setSelectMember={setSelectMember}
-                  memberId={member.id}
-                  post={member.post}
-                  member={member.member}
-                />
-              </>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+      <Table>
+        <TableHeader>
+          <TableRow className="w-[100px] ">
+            <TableHead className="font-bold  text-lg">Post</TableHead>
+            <TableHead className="font-bold  text-lg">Member Name</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="cursor-pointer">
+          {memberData.map((member) => (
+            <>
+              <MembersTableRow
+                isLoading={isLoading}
+                selectMember={selectMember}
+                setSelectMember={setSelectMember}
+                memberId={member.id}
+                post={member.post}
+                member={member.member}
+              />
+            </>
+          ))}
+        </TableBody>
+      </Table>
     </>
   );
 };
@@ -331,39 +350,66 @@ export const MemberDetails = ({
 }: MemberDetailsProps) => {
   return (
     <>
-      <div className="mt-10 h-fit w-1/3 border rounded-lg">
+      <div className="rounded-lg w-[450px] p-2 gap-5 border flex flex-col items-center">
         {/* Images */}
-        <img
-          className="object-cover w-[450px] h-[270px] rounded-md"
-          src={memberDetailsData.image}
-          alt="EventCardImageTest"
-        />
+        {isLoading ? (
+          <div className="flex items-center justify-center">
+            <Skeleton className="w-[430px] h-[270px] rounded-md" />
+          </div>
+        ) : (
+          <img
+            className="object-cover w-[430px] h-[270px] rounded-md"
+            src={memberDetailsData.image}
+            alt="EventCardImageTest"
+          />
+        )}
 
         {/* Title */}
         <div className="flex justify-center items-center">
-          <span className="font-bold text-xl">
-            {memberDetailsData.memberPost}
-          </span>
-        </div>
-
-        {/* Organizer */}
-        <div className="">
-          <span className="font-bold text-lg">Organizer: </span>
-          <span className="font-bold text-base">
-            {memberDetailsData.memberName}
-          </span>
+          {isLoading ? (
+            <div className="flex items-center justify-center">
+              <Skeleton className="w-[200px] h-[30px] rounded-full" />
+            </div>
+          ) : (
+            <span className="font-bold text-xl flex flex-col">
+              {memberDetailsData.memberPost} {memberDetailsData.memberName}
+            </span>
+          )}
         </div>
 
         {/* Date and Location */}
-        <div className=" flex gap-10">
-          <span className="font-semibold text-lg">Date: 23-12-2023</span>
-          <span className="font-semibold text-lg">Location: Chhawala</span>
+        <div className=" flex gap-3 w-full flex-col">
+          {isLoading ? (
+            <>
+              <Skeleton className="w-[300px] h-[30px] rounded-full" />
+              <Skeleton className="w-[350px] h-[30px] rounded-full" />
+            </>
+          ) : (
+            <>
+              <span className="font-semibold text-lg">
+                Phone no: {memberDetailsData.memberPhone}
+              </span>
+              <span className="font-semibold text-lg">
+                Email: {memberDetailsData.memberEmail}
+              </span>
+            </>
+          )}
         </div>
         {/* Description */}
-        <div className="">
-          <span className="font-semibold text-lg">Description: </span>
-          <span className="font-semibold text-base">
-            {memberDetailsData.memberDescription}
+        <div className="text-justify">
+          <span className="font-semibold text-base ">
+            {isLoading ? (
+              <>
+                <div className="flex flex-col gap-2">
+                  <Skeleton className="w-[400px] h-[20px] rounded-full" />
+                  <Skeleton className="w-[400px] h-[20px] rounded-full" />
+                  <Skeleton className="w-[400px] h-[20px] rounded-full" />
+                  <Skeleton className="w-[400px] h-[20px] rounded-full" />
+                </div>
+              </>
+            ) : (
+              memberDetailsData.memberDescription
+            )}
           </span>
         </div>
       </div>

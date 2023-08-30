@@ -2,8 +2,15 @@
 "use client";
 import React, { useState } from "react";
 type ImageUploadFormProps = {
-  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer" ;
-  cardType: "Adhar" | "Voter" | "Optional" | 'SchoolId';
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
+  cardType:
+    | "Adhar"
+    | "Voter"
+    | "SchoolId"
+    | "Pan"
+    | "Passport"
+    | "Driving"
+    | "Profile";
   PositionType: "Front" | "Back";
   state: FormStateType;
   dispatch: React.Dispatch<FormAction>;
