@@ -30,16 +30,15 @@ type FormStateType = {
   StudentFirstName: string;
   StudentMiddleName: string;
   StudentLastName: string;
-  StudentPhoneNo: string;
-  StudentEmail: string;
+  StudentPhoneNo?: string;
+  StudentEmail?: string;
   StudentBloodGroup: string;
   StudentAdharCardFront: string;
   StudentAdharCardBack: string;
-  StudentSchoolIdCard: string;
+  StudentSchoolIdCardFront: string;
 
   // Address Details
-  HouseNo: string;
-  StreetName: string;
+  Add: string;
   Area: string;
   State: string;
   District: string;
@@ -49,6 +48,39 @@ type FormStateType = {
   // Payment Details
   PaymentAmount: string;
   PaymentStatus: string;
+
+  // Teacher Details
+  TeacherFirstName: string;
+  TeacherMiddleName: string;
+  TeacherLastName: string;
+  TeacherPhoneNo: string;
+  TeacherEmail: string;
+  TeacherDOB: string;
+  TeacherBloodGroup: string;
+  TeacherSex: string;
+  TeacherProfileCardFront: File | null;
+  TeacherAdharCardFront: File | null;
+  TeacherAdharCardBack: File | null;
+  TeacherVoterCardFront: File | null;
+  TeacherVoterCardBack: File | null;
+  TeacherPanCardFront: File | null;
+  TeacherPassportCardFront?: File | null;
+  TeacherDrivingCardFront?: File | null;
+  TeacherDrivingCardBack?: File | null;
+
+  // Volunteer Details
+  VolunteerFirstName: string;
+  VolunteerMiddleName: string;
+  VolunteerLastName: string;
+  VolunteerPhoneNo: string;
+  VolunteerEmail: string;
+  VolunteerBloodGroup: string;
+  VolunteerAdharCardFront: File | null;
+  VolunteerAdharCardBack: File | null;
+  VolunteerVoterCardFront: File | null;
+  VolunteerVoterCardBack: File | null;
+  VolunteerOptionalCardFront?: File | null;
+  VolunteerOptionalCardBack?: File | null;
 };
 
 type FormAction = {

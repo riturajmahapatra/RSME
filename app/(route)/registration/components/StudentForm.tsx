@@ -1,62 +1,8 @@
 "use client";
 import React, { Dispatch, useEffect, useReducer, useState } from "react";
 import { BloodGroup, Email, IdProf, Name, PhoneNo } from "./FormComp";
-import AddressDetails from "./AddressDetails";
-
+import { initialState } from "./InitialState";
 // Remember : The IDProof also have multiple options like Aadhar, PAN, etc.
-const initialState: FormStateType = {
-  // Father Details
-  FatherFirstName: "",
-  FatherMiddleName: "",
-  FatherLastName: "",
-  FatherPhoneNo: "",
-  FatherEmail: "",
-  FatherBloodGroup: "",
-  FatherAdharCardFront: null,
-  FatherAdharCardBack: null,
-  FatherVoterCardFront: null,
-  FatherVoterCardBack: null,
-  FatherOptionalCardFront: null,
-  FatherOptionalCardBack: null,
-
-  // Mother Details
-  MotherFirstName: "",
-  MotherMiddleName: "",
-  MotherLastName: "",
-  MotherPhoneNo: "",
-  MotherEmail: "",
-  MotherBloodGroup: "",
-  MotherAdharCardFront: null,
-  MotherAdharCardBack: null,
-  MotherVoterCardFront: null,
-  MotherVoterCardBack: null,
-  MotherOptionalCardFront: null,
-  MotherOptionalCardBack: null,
-
-  // Student Details
-  StudentFirstName: "",
-  StudentMiddleName: "",
-  StudentLastName: "",
-  StudentPhoneNo: "",
-  StudentEmail: "",
-  StudentBloodGroup: "",
-  StudentAdharCardFront: "",
-  StudentAdharCardBack: "",
-  StudentSchoolIdCard: "",
-
-  // Address Details
-  HouseNo: "",
-  StreetName: "",
-  Area: "",
-  State: "",
-  District: "",
-  City: "",
-  Pincode: "",
-
-  // Payment Details
-  PaymentAmount: "",
-  PaymentStatus: "",
-};
 
 const StudentFormReducer = (state: FormStateType, action: FormAction) => {
   switch (action.type) {
@@ -76,13 +22,10 @@ export const StudentForm = () => {
   >(null);
 
   const [state, dispatch] = useReducer(StudentFormReducer, initialState);
-  //  write the useState and data management for every input field here
-  //  and then pass the state and setState as props to the respective
-  //  input field component
-  useEffect(() => {
-    console.log("FatherAdharCardFront: ", state.FatherAdharCardFront);
-    console.log("MotherAdharCardFront: ", state.MotherAdharCardFront);
-  }, [state]);
+  // useEffect(() => {
+  //   console.log("FatherAdharCardFront: ", state.FatherAdharCardFront);
+  //   console.log("MotherAdharCardFront: ", state.MotherAdharCardFront);
+  // }, [state]);
   return (
     <form method="POST">
       {/* Student Form */}
@@ -133,13 +76,15 @@ export const StudentForm = () => {
           {/* Right Side Form */}
           <div className=" flex-1">
             {selectStudentFormOptions === "Father" ? (
-              <FatherForm state={state} dispatch={dispatch} />
+              <FatherFormDetails state={state} dispatch={dispatch} />
             ) : selectStudentFormOptions === "Mother" ? (
-              <MotherForm state={state} dispatch={dispatch} />
+              <MotherFormDetails state={state} dispatch={dispatch} />
             ) : selectStudentFormOptions === "Student" ? (
               <StudentFormDetails state={state} dispatch={dispatch} />
             ) : (
-              selectStudentFormOptions === "Address" && <AddressDetails />
+              selectStudentFormOptions === "Address" && (
+                <AddressFormDetails state={state} dispatch={dispatch} />
+              )
             )}
           </div>
         </div>
@@ -149,11 +94,14 @@ export const StudentForm = () => {
 };
 
 //-----------------------------------------------------------------------
-type FatherFormProps = {
+type FatherFormDetailsProps = {
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
-export const FatherForm = ({ state, dispatch }: FatherFormProps) => {
+export const FatherFormDetails = ({
+  state,
+  dispatch,
+}: FatherFormDetailsProps) => {
   return (
     <>
       <div className="flex flex-col gap-5 p-10">
@@ -201,11 +149,14 @@ export const FatherForm = ({ state, dispatch }: FatherFormProps) => {
 
 //  --------------------------------------------------------------------------
 
-type MotherFormProps = {
+type MotherFormDetailsProps = {
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
-export const MotherForm = ({ state, dispatch }: MotherFormProps) => {
+export const MotherFormDetails = ({
+  state,
+  dispatch,
+}: MotherFormDetailsProps) => {
   return (
     <>
       <div className="flex flex-col gap-5 p-10">
@@ -297,6 +248,169 @@ export const StudentFormDetails = ({ state, dispatch }: StudentFormProps) => {
         {/* Id Proof */}
         <div className="flex gap-6">
           <IdProf formType="Student" state={state} dispatch={dispatch} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+// ------------------------------------------------------------------------
+
+type AddressFormDetailsProps = {
+  state: FormStateType;
+  dispatch: Dispatch<FormAction>;
+};
+export const AddressFormDetails = ({
+  state,
+  dispatch,
+}: AddressFormDetailsProps) => {
+  const handleAddChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "Add",
+      payload: event.target.value,
+    });
+  };
+  const handleStateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "State",
+      payload: event.target.value,
+    });
+  };
+  const handleDistrictChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "District",
+      payload: event.target.value,
+    });
+  };
+  const handleCityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "City",
+      payload: event.target.value,
+    });
+  };
+  const handleAreaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "Area",
+      payload: event.target.value,
+    });
+  };
+  const handlePincodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "Pincode",
+      payload: event.target.value,
+    });
+  };
+
+  console.log(
+    state.Add,
+    state.Area,
+    state.City,
+    state.District,
+    state.Pincode,
+    state.State
+  );
+  return (
+    <>
+      <div className="flex flex-col gap-5 p-10">
+        <div className="flex flex-col  gap-5">
+          {/* Add */}
+          <div className="flex gap-14 ">
+            <span className="text-lg font-semibold">{`Add:`}</span>
+            <input
+              className="outline-none border-b-2 w-[30vw] border-slate-200"
+              type="text"
+              name="Add"
+              placeholder="House No, Street Name/No, Landmark, etc."
+              required
+              value={state.Add}
+              onChange={handleAddChange}
+            />
+          </div>
+
+          {/* State */}
+          <div className="flex gap-12">
+            <span className="text-lg font-semibold">{`State:`}</span>
+            <input
+              className="outline-none border-b-2 border-slate-200"
+              type="text"
+              name="State"
+              placeholder="State"
+              required
+              value={state.State}
+              onChange={handleStateChange}
+            />
+          </div>
+
+          {/* District */}
+          <div className="flex gap-10">
+            <span className="text-lg font-semibold">{`District`}</span>
+            <input
+              className="outline-none border-b-2 border-slate-200"
+              type="text"
+              name="district"
+              placeholder="District"
+              required
+              value={state.District}
+              onChange={handleDistrictChange}
+            />
+          </div>
+
+          {/* City */}
+          <div className="flex gap-16">
+            <span className="text-lg font-semibold">{`City`}</span>
+            <input
+              className="outline-none border-b-2 border-slate-200"
+              type="text"
+              name="City"
+              placeholder="City"
+              required
+              value={state.City}
+              onChange={handleCityChange}
+            />
+          </div>
+
+          {/* Area */}
+          <div className="flex gap-16">
+            <span className="text-lg font-semibold">{`Area`}</span>
+            <input
+              className="outline-none border-b-2 border-slate-200"
+              type="text"
+              name="Area"
+              placeholder="Area"
+              required
+              value={state.Area}
+              onChange={handleAreaChange}
+            />
+          </div>
+
+          {/* Pincode */}
+          <div className="flex gap-9">
+            <span className="text-lg font-semibold">{`Pincode`}</span>
+            <input
+              className="outline-none border-b-2 border-slate-200"
+              type="number"
+              name="Pincode"
+              placeholder="Pincode"
+              required
+              value={state.Pincode}
+              onChange={handlePincodeChange}
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white rounded-full px-10 py-2"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </>

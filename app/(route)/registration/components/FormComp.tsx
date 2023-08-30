@@ -3,7 +3,7 @@ import ImageUploadForm from "./ImageUploadForm";
 
 /* eslint-disable @next/next/no-img-element */
 type NameProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
@@ -68,7 +68,7 @@ export const Name = ({ formType, state, dispatch }: NameProps) => {
 // ----------------------------------------------------------------------
 
 type PhoneProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   isRequired: boolean;
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
@@ -120,14 +120,13 @@ export const PhoneNo = ({
 // ---------------------------------------------
 
 type BloodGroupProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   isRequired: boolean;
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
 export const BloodGroup = ({
   formType,
-  isRequired,
   state,
   dispatch,
 }: BloodGroupProps) => {
@@ -138,6 +137,7 @@ export const BloodGroup = ({
       payload: e.target.value,
     });
   };
+
   return (
     <>
       <span className="text-base font-semibold">{`Blood Group:`}</span>
@@ -146,10 +146,10 @@ export const BloodGroup = ({
         type="text"
         name="FatherPhoneNo"
         placeholder="Your Blood Group"
-        required={isRequired}
         value={state[`${formType}BloodGroup`]}
         onChange={handleBloodGroupChange}
       />
+      
       <abbr title="Help us match you with donors when urgent needs arise.">
         <img src="/info.svg" alt="Info" width={20} />
       </abbr>
@@ -160,7 +160,7 @@ export const BloodGroup = ({
 // ---------------------------------------------
 
 type EmailProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   isRequired: boolean;
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
@@ -186,7 +186,6 @@ export const Email = ({
         className="outline-none border-b-2 border-slate-200"
         type="email"
         name="FatherEmail"
-        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
         placeholder="Example@gmail.com"
         required={isRequired}
         value={state[`${formType}Email`]}
@@ -199,7 +198,7 @@ export const Email = ({
 // ---------------------------------------------
 
 type IdProofProps = {
-  formType: "Father" | "Mother" | "Student";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
@@ -216,7 +215,10 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
     <>
       <span className="text-lg font-semibold">{`ID Proof:`}</span>
       <div className="flex flex-col gap-5">
-        {(formType === "Father" || formType === "Mother") && (
+        {(formType === "Father" ||
+          formType === "Mother" ||
+          formType === "Teacher" ||
+          formType === "Volunteer") && (
           <>
             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
               <FrontBackImage
@@ -249,10 +251,10 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
                 <option value="Driving License">Driving License</option>
                 <option value="Passport">Passport</option>
               </select>
-              {selectedIdProof === "Driving License" ? (
+              {selectedIdProof === "Driving" ? (
                 <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
                   <FrontBackImage
-                    cardType={"Optional"}
+                    cardType={"Driving"}
                     formType={formType}
                     state={state}
                     dispatch={dispatch}
@@ -264,7 +266,7 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
                 <>
                   <ImageUploadForm
                     formType={formType}
-                    cardType={"Optional"}
+                    cardType={"Passport"}
                     PositionType={"Front"}
                     state={state}
                     dispatch={dispatch}
@@ -286,12 +288,16 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
               />
             </div>
             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
-              <FrontBackImage
-                cardType={"SchoolId"}
-                formType={formType}
-                state={state}
-                dispatch={dispatch}
-              />
+              <span className="font-semibold text-lg ">{"School Id"} Card</span>
+              <div className="ml-28">
+                <ImageUploadForm
+                  formType={formType}
+                  cardType={"SchoolId"}
+                  PositionType={"Front"}
+                  state={state}
+                  dispatch={dispatch}
+                />
+              </div>
             </div>
           </>
         )}
@@ -302,8 +308,15 @@ export const IdProf = ({ formType, state, dispatch }: IdProofProps) => {
 
 //  ---------------------------------------------
 type FrontBackImageProps = {
-  cardType: "Adhar" | "Voter" | "Optional" | "SchoolId";
-  formType: "Father" | "Mother" | "Student";
+  cardType:
+    | "Adhar"
+    | "Voter"
+    | "SchoolId"
+    | "Pan"
+    | "Passport"
+    | "Driving"
+    | "Profile";
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 };
@@ -315,7 +328,11 @@ export const FrontBackImage = ({
 }: FrontBackImageProps) => {
   return (
     <>
-      <span className="font-semibold text-lg ">{cardType} Card</span>
+      {cardType === "Driving" ? (
+        ""
+      ) : (
+        <span className="font-semibold text-lg ">{cardType} Card</span>
+      )}
       <div className="flex flex-col gap-5 ml-10">
         <div className="flex gap-10">
           <span className="font-semibold text-lg">Front</span>

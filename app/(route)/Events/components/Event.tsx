@@ -33,7 +33,7 @@ export const Event = () => {
               <TableRowComp
                 date="23-12-2023"
                 title="Bhoomi Pujan of Delhi branch"
-                organizer="Amit Grewal"
+                organizer="Mr. Amit Grewal"
                 status="Upcoming"
                 setIsLoading={setIsLoading}
               />
@@ -48,7 +48,7 @@ export const Event = () => {
                 date="23-12-2023"
                 title="Bhoomi Pujan of Delhi branch"
                 organizer="Amit Grewal"
-                status="Ongoing"
+                status="Completed"
                 setIsLoading={setIsLoading}
               />
               <TableRowComp
@@ -76,7 +76,7 @@ interface TableRowCompType {
   date: string;
   title: string;
   organizer: string;
-  status: "Upcoming" | "Completed" | "Ongoing";
+  status: "Upcoming" | "Completed";
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const TableRowComp = ({
@@ -100,11 +100,7 @@ export const TableRowComp = ({
         <TableCell
           className={`
           font-semibold text-lg ${
-            status === "Upcoming"
-              ? "text-green-600"
-              : status === "Ongoing"
-              ? "text-blue-600"
-              : "text-red-600"
+            status === "Upcoming" ? "text-green-600" : "text-red-600"
           }`}
         >
           {status}
