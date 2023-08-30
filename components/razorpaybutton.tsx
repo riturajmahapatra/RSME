@@ -4,7 +4,6 @@ import { Button } from "./ui/button";
 
 interface RazorpayButtonProps {
   amount: number;
-  disabled: boolean;
 }
 
 const loadScript = (src: string, callback: () => void) => {
@@ -14,10 +13,7 @@ const loadScript = (src: string, callback: () => void) => {
   document.head.appendChild(script);
 };
 
-const RazorpayButton: React.FC<RazorpayButtonProps> = ({
-  amount,
-  disabled,
-}) => {
+const RazorpayButton: React.FC<RazorpayButtonProps> = ({ amount }) => {
   const [payment, setPayment] = useState<any>(null); // Use any for now
 
   useEffect(() => {
@@ -27,7 +23,7 @@ const RazorpayButton: React.FC<RazorpayButtonProps> = ({
         amount: amount * 100,
         currency: "INR",
         name: "Jan Sevaa Foundation",
-        description: "Payment for your service",
+        description: "Donate for a better cause",
         handler: (response: any) => {
           // Handle payment success or failure here
           console.log(response);
@@ -49,7 +45,7 @@ const RazorpayButton: React.FC<RazorpayButtonProps> = ({
 
   return (
     <Button
-      className="bg-blue-500 hover:bg-blue-400 text-lg"
+      className="bg-blue-500 hover:bg-blue-400 text-lg items-center"
       onClick={handleClick}
     >
       Donate Now
