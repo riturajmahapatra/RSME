@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import {
   Popover,
@@ -7,10 +8,49 @@ import {
 import RazorpayButton from "@/components/razorpaybutton";
 
 const Form = () => {
+<<<<<<< HEAD
   const [fullName, setFullName] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [email, setEmail] = useState("");
   const [panCard, setPanCard] = useState("");
+=======
+  const [fullName, setFullName] = useState<string>("");
+  console.log(fullName);
+
+  /*  */
+  const [number, setNumber] = useState<number>();
+  console.log(number);
+
+  const [donationAmt, setDonationAmt] = useState<number>();
+  console.log(donationAmt);
+
+  const [userEmail, setUserEmail] = useState<string>("");
+  console.log(userEmail);
+
+  const [DOB, setDOB] = useState<string>("");
+  console.log(DOB);
+
+  const [sex, setSex] = useState<string>("");
+  console.log(sex);
+
+  const [panCard, setPanCard] = useState<string>("");
+  console.log(panCard);
+
+  const [street, setStreet] = useState<string>("");
+  console.log(street);
+
+  const [city, setCity] = useState<string>("");
+  console.log(city);
+
+  const [state, setState] = useState<string>("");
+  console.log(state);
+
+  const [country, setCountry] = useState<string>("");
+  console.log(country);
+
+  const [pincode, setPincode] = useState<string>("");
+  console.log(pincode);
+>>>>>>> 2b631d5020f0c8398a2c29abc04bccef88d7ba46
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -42,8 +82,8 @@ const Form = () => {
               name="full_name"
               className="border rounded p-2 w-full"
               placeholder="Amit Grewal"
-              value={fullName}
               required
+              value={fullName}
               onChange={(e) => setFullName(e.target.value)}
             />
           </div>
@@ -54,12 +94,15 @@ const Form = () => {
               Phone Number <span className="font-bold text-red-400">*</span>
             </label>
             <input
-              type="tel"
+              type="number"
               id="phone_no"
               name="phone_no"
               className="border rounded p-2 w-full"
               placeholder="000-000-0000"
               required
+              value={number}
+              pattern="[6-9]{1}[0-9]{9}"
+              onChange={(e) => setNumber(e.target.valueAsNumber)}
             />
           </div>
 
@@ -74,6 +117,8 @@ const Form = () => {
               name="amount"
               className="border rounded p-2 w-full"
               placeholder="Enter amount"
+              value={donationAmt}
+              onChange={(e) => setDonationAmt(e.target.valueAsNumber)}
             />
           </div>
 
@@ -89,6 +134,8 @@ const Form = () => {
               className="border rounded p-2 w-full"
               placeholder="jansevaa31@gmail.com"
               required
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
             />
           </div>
 
@@ -102,6 +149,8 @@ const Form = () => {
               id="DOB"
               name="DOB"
               className="border rounded p-2 w-full"
+              value={DOB}
+              onChange={(e) => setDOB(e.target.value)}
             />
           </div>
 
@@ -110,7 +159,14 @@ const Form = () => {
             <label htmlFor="sex" className="block font-medium">
               Sex
             </label>
-            <select id="sex" name="sex" className="border rounded p-2 w-full">
+            <select
+              id="sex"
+              name="sex"
+              className="border rounded p-2 w-full"
+              /*  value={sex} */
+              onChange={(e) => setSex(e.target.value)}
+            >
+              <option value="">----Select----</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
@@ -129,6 +185,8 @@ const Form = () => {
               className="border rounded p-2 w-full"
               placeholder="ABCDE1234F"
               required
+              value={panCard}
+              onChange={(e) => setPanCard(e.target.value)}
             />
           </div>
 
@@ -143,9 +201,11 @@ const Form = () => {
               name="street"
               className="border rounded p-2 w-full"
               placeholder="1234 Main Street"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
             />
           </div>
-
+          {/* sadasdf */}
           {/* City Field */}
           <div className="mb-4">
             <label htmlFor="city" className="block font-medium">
@@ -157,6 +217,8 @@ const Form = () => {
               name="city"
               className="border rounded p-2 w-full"
               placeholder="City"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
             />
           </div>
 
@@ -171,6 +233,8 @@ const Form = () => {
               name="state"
               className="border rounded p-2 w-full"
               placeholder="State"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
             />
           </div>
 
@@ -185,6 +249,8 @@ const Form = () => {
               name="country"
               className="border rounded p-2 w-full"
               placeholder="Country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
             />
           </div>
 
@@ -199,6 +265,8 @@ const Form = () => {
               name="pincode"
               className="border rounded p-2 w-full"
               placeholder="110061"
+              value={pincode}
+              onChange={(e) => setPincode(e.target.value)}
             />
           </div>
 
