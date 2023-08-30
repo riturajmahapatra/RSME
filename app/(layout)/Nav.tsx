@@ -51,7 +51,7 @@ const Nav: React.FC<NavProps> = ({ currentUser }) => {
         <div className="flex flex-1 gap-10 items-center  justify-end">
           {/* The Dropdown comp will be used in new page. */}
           {/* <Dropdown /> */}
-          <ul className="gap-[30px]  flex items-center justify-center">
+          <ul className="gap-[30px] max-sm:hidden max-md:hidden max-lg:hidden flex items-center justify-center">
             <div className="flex justify-center items-center">
               <Switch onClick={() => toggleLang()} />
               <h1 className="text-[1.1rem] font-semibold">&nbsp; हिंदी</h1>

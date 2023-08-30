@@ -1,12 +1,14 @@
-import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useState } from "react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import RazorpayButton from "@/components/razorpaybutton";
 
 const Form = () => {
+  const [fullName, setFullName] = useState("");
+
   return (
     <div className="container   mx-auto p-8">
       <form /* onSubmit={onSubmit} */ className="">
@@ -25,7 +27,9 @@ const Form = () => {
               name="full_name"
               className="border rounded p-2 w-full"
               placeholder="Amit Grewal"
+              value={fullName}
               required
+              onChange={(e) => setFullName(e.target.value)}
             />
           </div>
 
@@ -184,9 +188,8 @@ const Form = () => {
           </div>
 
           {/* Submit Button */}
-          <Button className="bg-blue-500 hover:bg-blue-400 text-lg">
-            Donate Now{" "}
-          </Button>
+          <RazorpayButton amount={100} />
+
           <Popover>
             <PopoverTrigger className="bg-blue-400 hover:bg-blue-300 rounded-md text-white text-lg">
               QR Code
