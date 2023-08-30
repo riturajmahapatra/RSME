@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import "@/app/components/style.css";
-/* import logo from "@/app/assets/logo.png"; */
+import logo from "@/app/assets/logo.png";
 import Image from "next/image";
 import Dropdown from "@/app/components/Dropdown";
 import { Switch } from "@/components/ui/switch";
@@ -32,7 +32,7 @@ const Nav: React.FC<NavProps> = ({ currentUser }) => {
           <div className="flex gap-2 items-center justify-center md:gap-4">
             <div className="relative h-12 w-12  md:h-20 md:w-20">
               <Image
-                src="/app/assets/logo.png"
+                src={logo}
                 alt="Blob"
                 fill
                 style={{

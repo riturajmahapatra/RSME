@@ -16,6 +16,7 @@ const page = () => {
             alt="VHL GROUP"
           />
         </div>
+        <Form></Form>
         <div className="container mx-auto p-8">
           <h1 className="text-3xl font-semibold mb-4">
             {!isHindi
@@ -103,7 +104,6 @@ const page = () => {
             आइए मिलकर एक स्थायी प्रभाव डालें!`}
           </p>
         </div>
-        <Form></Form>
       </div>
     </main>
   );
