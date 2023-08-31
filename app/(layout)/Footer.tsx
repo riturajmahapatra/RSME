@@ -1,105 +1,92 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import "@/app/components/style.css";
 
 const Footer = () => {
   return (
     <div>
-      <div>
-        <footer className="  footer-img relative h-[60vh] text-white pt-8">
-          <div className="container  absolute bottom-2 mt-[170px] mx-auto flex flex-col md:flex-row justify-between">
-            <div className="md:w-1/3 max-md:text-[2vh]  max-md:hidden">
-              <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-              <p>Email: jansevaa31@gmail.com</p>
-              <p>Phone: +91-9968966660</p>
-            </div>
-            <div className="md:w-1/3 mt-6 md:mt-0 max-md:hidden">
-              <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
-              <ul className="space-y-2">
-                <li>
-                  <a className=" footer-underline" href="#">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a className=" footer-underline" href="#">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a className=" footer-underline" href="#">
-                    Medical Aid
-                  </a>
-                </li>
-                <li>
-                  <a className=" footer-underline" href="#">
-                    Student Education
-                  </a>
-                </li>
-                <li>
-                  <a className=" footer-underline" href="#">
-                    Training Programs
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="md:w-1/3 mt-6 md:mt-0 max-md:text-[2vh]  max-sm:mb-10 ">
-              <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
-              <div className="flex  justify-start items-center  space-x-4">
-                <a href="#">
-                  <div className="">
-                    <img
-                      className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                      src="/images/socials/facebook.svg"
-                      alt=""
-                    />
-                  </div>
+      <footer className="footer-img relative h-[60vh] text-white pt-8">
+        <div className="container absolute bottom-2 mt-[170px] mx-auto flex flex-col md:flex-row justify-between">
+          <div className="md:w-1/3 max-md:text-[2vh] max-md:hidden">
+            <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
+            <p>Email: jansevaa31@gmail.com</p>
+            <p>Phone: +91-9968966660</p>
+          </div>
+          <div className="md:w-1/3 mt-6 md:mt-0 max-md:hidden">
+            <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
+            <ul className="space-y-2">
+              <li>
+                <a className="underline" href="#">
+                  Home
                 </a>
-                <a href="#" className="">
-                  <div className="">
-                    <img
-                      className="h-8 w-8  hover:scale-110 transform transition-transform duration-700"
-                      src="/images/socials/linkedin.svg"
-                      alt=""
-                    />
-                  </div>
+              </li>
+              <li>
+                <a className="underline" href="#">
+                  About Us
                 </a>
-                <a href="#" className="hover:text-gray-400">
-                  <div className="">
-                    <img
-                      className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                      src="/images/socials/youtube.svg"
-                      alt=""
-                    />
-                  </div>
+              </li>
+              <li>
+                <a className="underline" href="#">
+                  Medical Aid
                 </a>
-                <a href="#" className="hover:text-gray-400">
-                  <div className="">
-                    <img
-                      className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                      src="/images/socials/twitter.svg"
-                      alt=""
-                    />
-                  </div>
+              </li>
+              <li>
+                <a className="underline" href="#">
+                  Student Education
                 </a>
-                <a href="#" className="hover:text-gray-400">
-                  <div className="">
-                    <img
-                      className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                      src="/images/socials/instagram.svg"
-                      alt=""
-                    />
-                  </div>
+              </li>
+              <li>
+                <a className="underline" href="#">
+                  Training Programs
                 </a>
-              </div>
+              </li>
+            </ul>
+          </div>
+          <div className="md:w-1/3 mt-6 md:mt-0 max-md:text-[2vh] max-sm:mb-10">
+            <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
+            <div className="flex justify-start items-center space-x-4">
+              <a href="#">
+                <img
+                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
+                  src="/images/socials/facebook.svg"
+                  alt=""
+                />
+              </a>
+              <a href="#">
+                <img
+                  className="h-8 w-8 hover:scale-110 transform transition-transform duration-700"
+                  src="/images/socials/linkedin.svg"
+                  alt=""
+                />
+              </a>
+              <a href="#" className="hover:text-gray-400">
+                <img
+                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
+                  src="/images/socials/youtube.svg"
+                  alt=""
+                />
+              </a>
+              <a href="#" className="hover:text-gray-400">
+                <img
+                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
+                  src="/images/socials/twitter.svg"
+                  alt=""
+                />
+              </a>
+              <a href="#" className="hover:text-gray-400">
+                <img
+                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
+                  src="/images/socials/instagram.svg"
+                  alt=""
+                />
+              </a>
             </div>
           </div>
-          <p className="absolute right-0 bottom-2 max-sm:text-center  max-sm:text-[2vh]">
-            &copy; {new Date().getFullYear()} Jansevaa Foundation. All rights
-            reserved.
-          </p>
-        </footer>
-      </div>
+        </div>
+        <p className="absolute right-0 bottom-2 max-sm:text-center max-sm:text-[2vh]">
+          &copy; {new Date().getFullYear()} Jansevaa Foundation. All rights
+          reserved.
+        </p>
+      </footer>
     </div>
   );
 };

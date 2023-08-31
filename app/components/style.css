@@ -129,7 +129,7 @@
 }
 
 /* Media queries for different screen sizes */
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   .footer-img {
     height: 60vh;
   }
@@ -139,11 +139,11 @@
   .footer-img {
     height: 60vh;
   }
-}
+} */
 
 /* footer-link */
 
-.footer-underline {
+/* .footer-underline {
   position: relative;
   color: #ffffff;
   text-decoration: none;
@@ -163,17 +163,10 @@
   bottom: 0;
   left: 0;
   background: #ffff;
-  /* background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 24%,
-    rgba(0, 212, 255, 1) 100%
-  ); */
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .footer-underline:hover::before {
   transform: scaleX(1);
-}
+} */

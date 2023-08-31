@@ -153,7 +153,7 @@ const page = () => {
             }
             images="/icons/punch.svg"
             customClasses="h-[100px] pl-6 w-[150px] "
-            /*  blob="/images/blob7.svg" */
+            blob="/images/blob7.svg"
           />
           <Herocard
             heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए शिक्षा`}
@@ -164,7 +164,7 @@ const page = () => {
             }
             images="/icons/punch.svg"
             customClasses="h-[100px]  pl-6 w-[150px] "
-            /*  blob="/images/blob7.svg" */
+            blob="/images/blob7.svg"
           />
           <Herocard
             heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए शिक्षा`}
@@ -175,7 +175,7 @@ const page = () => {
             }
             images="/icons/punch.svg"
             customClasses="h-[100px] pl-6 w-[150px] "
-            /*  blob="/images/blob7.svg" */
+            blob="/images/blob7.svg"
           />
         </div>
       </div>
