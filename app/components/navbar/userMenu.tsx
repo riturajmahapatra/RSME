@@ -5,6 +5,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 
 import MenuItem from "./menuItem";
+import { ContextAccess } from "../ContextAccess";
+import { Switch } from "@/components/ui/switch";
 
 const UserMenu = () => {
   const router = useRouter();
@@ -13,10 +15,17 @@ const UserMenu = () => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+  const { toggleLang } = ContextAccess();
 
   return (
     <div className="relative">
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center gap-4">
+        <div className="flex items-center mr-2">
+          <Switch onClick={() => toggleLang()} />
+          <h1 className="text-sm md:text-[1.1rem] font-semibold">
+            &nbsp; हिंदी
+          </h1>
+        </div>
         <div onClick={toggleOpen} className="">
           <AiOutlineMenu />
         </div>
@@ -39,9 +48,9 @@ const UserMenu = () => {
           <div className="flex flex-col cursor-pointer">
             <>
               <MenuItem
-                label="About us"
+                label="Donate"
                 onClick={() => {
-                  router.push("/Aboutus");
+                  router.push("/Donation");
                 }}
               />
               <MenuItem
@@ -63,9 +72,9 @@ const UserMenu = () => {
                 }}
               />
               <MenuItem
-                label="Donate"
+                label="About us"
                 onClick={() => {
-                  router.push("/Donation");
+                  router.push("/Aboutus");
                 }}
               />
             </>

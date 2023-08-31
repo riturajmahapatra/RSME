@@ -5,7 +5,6 @@ import logo from "@/app/assets/logo.png";
 import Image from "next/image";
 import { AiOutlineMenu } from "react-icons/ai";
 import Dropdown from "@/app/components/Dropdown";
-import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
 import {
   Popover,
@@ -14,6 +13,7 @@ import {
 } from "@/components/ui/popover";
 import { ContextAccess } from "../components/ContextAccess";
 import UserMenu from "../components/navbar/userMenu";
+import { Switch } from "@/components/ui/switch";
 
 const Nav: React.FC = () => {
   const { toggleLang } = ContextAccess();
@@ -28,13 +28,13 @@ const Nav: React.FC = () => {
             <div className="relative h-12 w-12 md:h-20 md:w-20">
               <Image src={logo} alt="Blob" fill className="" />
             </div>
-            <h1 className="max-sm:text-3xl uppercase font-bold text-3xl max-md:text-4xl font-serif">
+            <h1 className="max-sm:text-2xl uppercase font-bold text-3xl max-md:text-4xl font-serif">
               <span className="text-orange-500 ">Jan</span>{" "}
               <span className="text-[#036C93]">sevaa</span>{" "}
             </h1>
           </div>
         </Link>
-        <div className="flex flex-1 gap-2 md:gap-10 max-md items-center justify-end mt-2 md:mt-0">
+        <div className="flex flex-1 gap-2 md:gap-10 items-center justify-end mt-2 md:mt-0">
           <ul className="flex flex-col md:flex-row max-lg:hidden gap-2 md:gap-4 md:items-center">
             <div className="flex items-center">
               <Switch onClick={() => toggleLang()} />
@@ -43,26 +43,24 @@ const Nav: React.FC = () => {
               </h1>
             </div>
             <Link href={"/members"}>
-              <Button className="border text-xs md:text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500">
+              <Button className="text-xs md:text-[1.1rem] font-bold bg-white hover:bg-white text-[#036c93] hover:text-orange-500">
                 Our Members
               </Button>
             </Link>
             <Link href={"/registration"}>
-              <Button className="border text-xs md:text-[1.1rem] font-bold border-blue-500 bg-white hover:bg-white text-black hover:text-orange-500">
+              <Button className="text-xs md:text-[1.1rem] font-bold  bg-white hover:bg-white text-orange-500 hover:text-[#036c93]">
                 Registration
               </Button>
             </Link>
-            <Link
-              className="font-bold text-sm md:text-xl text-[#036c93]"
-              href={"/Aboutus"}
-            >
-              About Us
+            <Link href={"/Aboutus"}>
+              <Button className="text-xs md:text-[1.1rem] font-bold bg-white hover:bg-white text-[#036c93] hover:text-orange-500">
+                About us
+              </Button>
             </Link>
-            <Link
-              className="font-bold text-sm md:text-xl text-orange-500"
-              href={"/Events"}
-            >
-              Events
+            <Link href={"/Events"}>
+              <Button className="text-xs md:text-[1.1rem] font-bold  bg-white hover:bg-white text-orange-500 hover:text-[#036c93]">
+                Events
+              </Button>
             </Link>
             <Link href={"/Donation"}>
               <Button className="border text-[1.1rem] font-bold border-blue-500 bg-transparent text-black hover:text-[#036C93] hover:bg-white">
