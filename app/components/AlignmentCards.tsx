@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Image from "next/image";
 
 type AlignmentCardsType = {
   heading: string;
@@ -13,10 +14,7 @@ const AlignmentCards = ({
   cardtext,
   images,
   isImageLeft,
-}:
-AlignmentCardsType) => {
-
-
+}: AlignmentCardsType) => {
   return (
     <div
       className={`relative flex justify-between items-center m-[5vw] ${
@@ -25,7 +23,7 @@ AlignmentCardsType) => {
     >
       {/* Display the image with conditional classes */}
       <div className="overflow-hidden relative w-fit h-fit rounded-md group">
-        <img
+        <Image
           className="rounded-md hover:scale-110 transform transition-transform duration-700 "
           src={images}
           alt="wellness"

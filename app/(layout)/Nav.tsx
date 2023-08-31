@@ -12,15 +12,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { ContextAccess } from "../components/ContextAccess";
-import Modal from "../components/Modal";
-import UserMenu from "../components/navbar/UserMenu";
-import { User } from "@prisma/client";
 
-interface NavProps {
-  currentUser?: User | null;
-}
-
-const Nav: React.FC<NavProps> = ({ currentUser }) => {
+const Nav: React.FC = () => {
   const { toggleLang } = ContextAccess();
 
   // write the logic for modal component open here in button of login
@@ -78,8 +71,6 @@ const Nav: React.FC<NavProps> = ({ currentUser }) => {
             >
               Events
             </Link>
-
-            <UserMenu currentUser={currentUser} />
           </ul>
         </div>
       </nav>

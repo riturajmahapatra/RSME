@@ -2,6 +2,7 @@
 import React from "react";
 import Form from "./Form";
 import { ContextAccess } from "../../components/ContextAccess";
+import Image from "next/image";
 
 const page = () => {
   const { isHindi } = ContextAccess();
@@ -10,7 +11,9 @@ const page = () => {
     <main className=" min-h-screen">
       <div className="">
         <div className="flex justify-center items-center ">
-          <img
+          <Image
+            width={1000}
+            height={800}
             className="h-[80vh] w-full object-cover "
             src="/donation-baccha.jpg"
             alt="VHL GROUP"

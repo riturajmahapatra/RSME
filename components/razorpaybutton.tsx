@@ -31,7 +31,6 @@ const RazorpayButton: React.FC<RazorpayButtonProps> = ({ amount }) => {
       };
 
       // Declare Razorpay on window explicitly
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const paymentObject: any = new (window as any).Razorpay(options);
       setPayment(paymentObject);
     });
