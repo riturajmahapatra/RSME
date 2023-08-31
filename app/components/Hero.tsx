@@ -203,8 +203,8 @@ const Hero = () => {
               {!isHindi ? `Our Endeavors` : `हमारी प्रयासें`}
             </h1>
           </div>
-          <div className="flex justify-center">
-            <Separator className="w-[75vw] ml-[2vw] mt-10" />
+          <div className="flex items-center justify-center">
+            <hr className="flex h-px w-2/3 items-center border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
           </div>
 
           <AlignmentCards
@@ -217,6 +217,8 @@ const Hero = () => {
             images="/img1.jpg"
             cardtext={!isHindi ? `NEW ATTRIBUTE` : `नया गुण`}
           />
+          <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+
           <AlignmentCards
             heading={
               !isHindi
@@ -227,6 +229,8 @@ const Hero = () => {
             isImageLeft={true}
             cardtext={!isHindi ? `WELLNESS ACCESS` : `स्वास्थ्य पहुँच`}
           />
+          <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+
           <AlignmentCards
             images="/img3.jpg"
             heading={
@@ -237,6 +241,7 @@ const Hero = () => {
             /*       description="no desc" */
             cardtext={!isHindi ? `EMPOWERING HER` : `उसे सशक्त बनाना`}
           />
+          <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
         </div>
       </main>
     </div>

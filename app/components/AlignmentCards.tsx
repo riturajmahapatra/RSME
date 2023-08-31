@@ -17,7 +17,7 @@ const AlignmentCards = ({
 }: AlignmentCardsType) => {
   return (
     <div
-      className={`relative redborder max-xl:flex-col max-xl:gap-4 max-xl:text-center flex justify-between items-center m-[5vw] ${
+      className={`relative  max-xl:flex-col max-xl:gap-4 max-xl:text-center flex justify-between items-center m-[5vw] ${
         isImageLeft ? "flex-row-reverse" : ""
       }`}
     >
