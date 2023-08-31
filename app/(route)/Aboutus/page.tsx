@@ -142,7 +142,7 @@ const page = () => {
 
       {/* not updated */}
 
-      <div className="flex items-center justify-center mt-28  ">
+      <div className="flex items-center justify-center mt-28 mb-20 ">
         <p className="text-[1.2rem] text-center font-bold w-[75vw]">
           {!isHindi
             ? `Join us in our mission to sow the seeds of change, nurture them with compassion, and watch as they grow into a future brimming with promise. Welcome to Jansevaa – where every action, no matter how small, is a step towards a brighter tomorrow.`
