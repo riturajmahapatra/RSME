@@ -4,88 +4,143 @@ import "@/app/components/style.css";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer-img relative h-[60vh] text-white pt-8">
-        <div className="container absolute bottom-2 mt-[170px] mx-auto flex flex-col md:flex-row justify-between">
-          <div className="md:w-1/3 max-md:text-[2vh] max-md:hidden">
-            <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-            <p>Email: jansevaa31@gmail.com</p>
-            <p>Phone: +91-9968966660</p>
+      <footer className="footer-img relative bg-blueGray-200 pt-8 pb-6 bg-red-500">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap text-left lg:text-left">
+            <div className="w-full lg:w-6/12 px-4">
+              <h4 className="text-3xl font-semibold text-blueGray-700 text-white">
+                Let's keep in touch!
+              </h4>
+              <h5 className="text-lg mt-0 mb-2 text-blueGray-600 text-white">
+                Find us on any of these platforms, we respond 1-2 business days.
+              </h5>
+              <div className="mt-6 lg:mb-0 mb-6">
+                <button
+                  className=" text-lightBlue-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <img
+                    src="/images/socials/twitter.svg"
+                    alt="logo"
+                    className="w-[9 0%]"
+                  />
+                </button>
+                <button
+                  className=" text-lightBlue-600 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <img
+                    src="/images/socials/facebook.svg"
+                    alt="logo"
+                    className="w-[80%]"
+                  />
+                </button>
+                <button
+                  className=" text-pink-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <img src="/images/socials/youtube.svg" alt="logo" />
+                </button>
+                <button
+                  className=" text-blueGray-800  font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <img
+                    src="/images/socials/instagram.svg"
+                    alt="logo"
+                    className="w-[80%]"
+                  />
+                </button>
+              </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="flex flex-wrap items-top mb-6">
+                <div className="w-full lg:w-4/12 px-4 ml-auto">
+                  <span className="block uppercase text-blueGray-500 text-md font-bold mb-2 text-white">
+                    Useful Links
+                  </span>
+                  <ul className="list-unstyled">
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="/"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="https://blog.creative-tim.com?ref=njs-profile"
+                      >
+                        About Us
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="https://www.github.com/creativetimofficial?ref=njs-profile"
+                      >
+                        Medical Aid
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                      >
+                        Student Education
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                      >
+                        Training Programs
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="w-full lg:w-4/12 px-4">
+                  <hr className="my-3 w-2/3 lg:hidden" />
+                  <span className="block uppercase text-blueGray-500 text-md font-semibold mb-2 text-white">
+                    Contact Us
+                  </span>
+                  <ul className="list-unstyled">
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
+                      >
+                        jansevaa31@gmail.com
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
+                        href="https://creative-tim.com/terms?ref=njs-profile"
+                      >
+                        +91-9968966660
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="md:w-1/3 mt-6 md:mt-0 max-md:hidden">
-            <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
-            <ul className="space-y-2">
-              <li>
-                <a className="underline" href="#">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="underline" href="#">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a className="underline" href="#">
-                  Medical Aid
-                </a>
-              </li>
-              <li>
-                <a className="underline" href="#">
-                  Student Education
-                </a>
-              </li>
-              <li>
-                <a className="underline" href="#">
-                  Training Programs
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="md:w-1/3 mt-6 md:mt-0 max-md:text-[2vh] max-sm:mb-10">
-            <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
-            <div className="flex justify-start items-center space-x-4">
-              <a href="#">
-                <img
-                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                  src="/images/socials/facebook.svg"
-                  alt=""
-                />
-              </a>
-              <a href="#">
-                <img
-                  className="h-8 w-8 hover:scale-110 transform transition-transform duration-700"
-                  src="/images/socials/linkedin.svg"
-                  alt=""
-                />
-              </a>
-              <a href="#" className="hover:text-gray-400">
-                <img
-                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                  src="/images/socials/youtube.svg"
-                  alt=""
-                />
-              </a>
-              <a href="#" className="hover:text-gray-400">
-                <img
-                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                  src="/images/socials/twitter.svg"
-                  alt=""
-                />
-              </a>
-              <a href="#" className="hover:text-gray-400">
-                <img
-                  className="h-10 w-10 rounded-md hover:scale-110 transform transition-transform duration-700"
-                  src="/images/socials/instagram.svg"
-                  alt=""
-                />
-              </a>
+          <hr className="my-6 border-blueGray-300" />
+          <div className="flex flex-wrap items-center md:justify-between justify-center">
+            <div className="w-full md:w-4/12 px-4 mx-auto text-center">
+              <div className="text-sm text-blueGray-500 font-semibold py-1 text-white">
+                Copyright ©{" "}
+                <span id="get-current-year">
+                  2023 Jan Sevaa. All rights reserved.
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        <p className="absolute right-0 bottom-2 max-sm:text-center max-sm:text-[2vh]">
-          &copy; {new Date().getFullYear()} Jansevaa Foundation. All rights
-          reserved.
-        </p>
       </footer>
     </div>
   );

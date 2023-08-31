@@ -121,11 +121,8 @@
 /* footer */
 
 .footer-img {
-  background-image: url("/images/blobwave.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  height: 50vh;
+  background: rgb(250,114,104);
+background: linear-gradient(0deg, rgba(250,114,104,1) 35%, rgba(227,61,86,1) 100%);
 }
 
 /* Media queries for different screen sizes */
