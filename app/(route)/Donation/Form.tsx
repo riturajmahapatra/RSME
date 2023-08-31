@@ -17,6 +17,7 @@ const Form = () => {
   const [userEmail, setUserEmail] = useState<string>("");
 
   const [DOB, setDOB] = useState<string>("");
+  console.log(DOB);
 
   const [sex, setSex] = useState<string>("");
 

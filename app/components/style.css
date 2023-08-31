@@ -128,6 +128,19 @@
   height: 50vh;
 }
 
+/* Media queries for different screen sizes */
+@media (max-width: 640px) {
+  .footer-img {
+    height: 60vh;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .footer-img {
+    height: 60vh;
+  }
+}
+
 /* footer-link */
 
 .footer-underline {
