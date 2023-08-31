@@ -5,7 +5,7 @@ import React, { useState } from "react";
 type ImageUploadFormProps = {
   formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
   cardType:
-    | "Adhar"
+    | "Aadhar"
     | "Voter"
     | "SchoolId"
     | "Pan"

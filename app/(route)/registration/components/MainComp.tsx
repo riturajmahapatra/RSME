@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { StudentForm } from "./StudentForm";
+// import { StudentForm } from "./StudentForm";
 import TeacherForm from "./TeacherForm";
-import VolunteerForm from "./VolunteerForm";
+// import VolunteerForm from "./VolunteerForm";
 
 const MainComp = () => {
   const [selectFormType, setSelectFormType] = useState<
@@ -40,9 +40,9 @@ const MainComp = () => {
         </button>
       </div>
       <div className="border rounded-3xl mt-10 p-5">
-        {selectFormType === "Student" && <StudentForm />}
+        {/* {selectFormType === "Student" && <StudentForm />} */}
         {selectFormType === "Teacher" && <TeacherForm />}
-        {selectFormType === "Volunteer" && <VolunteerForm />}
+        {/* {selectFormType === "Volunteer" && <VolunteerForm />} */}
       </div>
     </div>
   );

@@ -20,73 +20,17 @@ type State = {
 };
 
 export const MembersComp = () => {
-  const [selectedState, setSelectedState] = useState<string>("");
-  const [selectedDistrict, setSelectedDistrict] = useState<string>("");
-
-  const handleStateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedState(event.target.value);
-    setSelectedDistrict("");
-    setSelectBranch(null);
-    setSelectMember(null);
-    setBranchLoading(true);
-    setMemberLoading(true);
-  };
-
-  const handleDistrictChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    setSelectedDistrict(event.target.value);
-    setBranchLoading(false);
-    setMemberLoading(true);
-    setSelectBranch(null);
-    setSelectMember(null);
-  };
-
   //  Loading Logic for the Branch tables
   const [branchLoading, setBranchLoading] = useState(true);
   const [memberLoading, setMemberLoading] = useState(true);
 
-  // Push the state and district to the backend and get the branch data from there
-  useEffect(() => {
-    if (selectedDistrict && selectedState) {
-      axios
-        .get(
-          `${process.env.API_REQUEST_URL}/api/branch/${selectedState}/${selectedDistrict}`
-        )
-        .then((res) => {
-          console.log(res.data);
-          setBranchLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setBranchLoading(false);
-        });
-    }
-  }, [selectedState, selectedDistrict]);
-
-  const [selectBranch, setSelectBranch] = useState<number | null>(null);
-
+  const [selectedBranchId, setSelectedBranchId] = useState<number | null>(null);
+  console.log(selectedBranchId);
   // Push the selected BranchId to the backend and get the members data table from there
 
-  const [selectMember, setSelectMember] = useState<number | null>(null);
+  const [selectMember, setSelectMember] = useState<number>(0);
 
   // Push the selected MemberId to the backend and get the member data from there
-
-  const BranchDummyData = [
-    { id: 1, branchName: "Bijwasan" },
-    { id: 2, branchName: "Chhawala" },
-    { id: 3, branchName: "TilakNagar" },
-    { id: 4, branchName: "Kapashera" },
-    { id: 5, branchName: "Safdarjang" },
-    {
-      id: 6,
-      branchName:
-        "testing purpose ke liye just to check the height dflkjaldjfladj fadfj df",
-    },
-    { id: 7, branchName: "Delhi" },
-    { id: 8, branchName: "Mumbai" },
-  ];
-
   const MemberDummyData = [
     { id: 1, post: "President", member: "Amit Grewal" },
     { id: 2, post: "Chota President", member: "Sachin Yadav" },
@@ -106,12 +50,12 @@ export const MembersComp = () => {
   };
 
   useEffect(() => {
-    if (selectBranch) {
+    if (selectedBranchId) {
       setMemberLoading(false);
-    } else if (!selectBranch) {
+    } else if (!selectedBranchId) {
       setMemberLoading(true);
     }
-  }, [selectBranch]);
+  }, [selectedBranchId]);
 
   return (
     <>
@@ -119,22 +63,12 @@ export const MembersComp = () => {
         <div className="flex items-center gap-5 justify-center mt-10">
           <span className="text-xl font-bold">Chose Location</span>
           <Dropdown
-            selectedState={selectedState}
-            selectedDistrict={selectedDistrict}
-            handleStateChange={handleStateChange}
-            handleDistrictChange={handleDistrictChange}
+            selectedBranchId={selectedBranchId}
+            setSelectedBranchId={setSelectedBranchId}
           />
         </div>
         <div className="border w-full my-10" />
         <div className="flex gap-10">
-          <div className="mt-10 h-fit w-1/4 border rounded-lg">
-            <BranchTable
-              isLoading={branchLoading}
-              selectBranch={selectBranch}
-              setSelectBranch={setSelectBranch}
-              branchData={BranchDummyData}
-            />
-          </div>
           <div className="mt-10 h-fit w-1/3 border rounded-lg">
             <MemberTable
               isLoading={memberLoading}
@@ -240,8 +174,8 @@ export const BranchTableRow = ({
 //  -----------------------------------------------------------
 interface MemberTableProps {
   isLoading: boolean;
-  selectMember: number | null;
-  setSelectMember: React.Dispatch<React.SetStateAction<number | null>>;
+  selectMember: number;
+  setSelectMember: React.Dispatch<React.SetStateAction<number>>;
   memberData: { id: number; post: string; member: string }[];
 }
 export const MemberTable = ({
@@ -282,8 +216,8 @@ export const MemberTable = ({
 
 type MembersTableRowProps = {
   isLoading: boolean;
-  selectMember: number | null;
-  setSelectMember: React.Dispatch<React.SetStateAction<null | number>>;
+  selectMember: number;
+  setSelectMember: React.Dispatch<React.SetStateAction<number>>;
   memberId: number;
   post: string;
   member: string;
@@ -330,8 +264,8 @@ export const MembersTableRow = ({
 
 interface MemberDetailsProps {
   isLoading: boolean;
-  selectMember: number | null;
-  setSelectMember: React.Dispatch<React.SetStateAction<number | null>>;
+  selectMember: number;
+  setSelectMember: React.Dispatch<React.SetStateAction<number>>;
   memberDetailsData: {
     id: number;
     image: string;
