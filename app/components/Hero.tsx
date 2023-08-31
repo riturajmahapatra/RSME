@@ -95,7 +95,7 @@ const Hero = () => {
             {!isHindi ? `Our Initiatives` : `हमारी पहलें`}
           </h1>
 
-          <div className="  grid grid-cols-4 mx-20 max-md:grid-cols-1 max-md:gap-14 max-sm:w-full max-sm:flex max-sm:flex-col max-sm:-ml-6">
+          <div className="  grid grid-cols-4 mx-20 max-xl:grid-cols-2 max-xl:gap-16 max-md:grid-cols-1 max-md:gap-14 max-sm:w-full max-sm:flex max-sm:flex-col max-sm:-ml-6">
             <Herocard
               heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए सीखना`}
               description={
@@ -104,7 +104,7 @@ const Hero = () => {
                   : `समावेशी शिक्षा, पोषण और बच्चों के समग्र विकास को बढ़ावा देना`
               }
               images="/images/vc.svg"
-              customClasses="h-20 max-md:absolute max-md:left-20 max-sm:hidden"
+              customClasses="h-20 max-md:absolute max-md:left-20 max-sm:block"
               blob="/images/blob1.svg"
             />
             <Herocard
@@ -115,7 +115,7 @@ const Hero = () => {
                   : `दूरस्थ और असेवित समुदायों में आवश्यक चिकित्सा सेवाओं को लाना`
               }
               images="/images/spa.svg"
-              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:hidden"
+              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
               blob="/images/blob2.svg"
             />
             <Herocard
@@ -125,7 +125,7 @@ const Hero = () => {
                   ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
                   : `समावेशी शिक्षा, पोषण और बच्चों के समग्र विकास को बढ़ावा देना `
               }
-              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:hidden"
+              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
               images="/images/entrepreneurs.svg"
               blob="/images/blob3.svg"
             />
@@ -136,7 +136,7 @@ const Hero = () => {
                   ? `Imparting skills and aiding the career journey of disadvantaged youth`
                   : `अवसरवादी युवाओं के कौशलों को प्रदान करना और उनकी कैरियर यात्रा में सहायता करना`
               }
-              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:hidden"
+              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
               images="/images/startup.svg"
               blob="/images/blob4.svg"
             />
