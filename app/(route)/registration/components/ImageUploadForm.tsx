@@ -1,9 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 type ImageUploadFormProps = {
-  formType: "Father" | "Mother" | "Student" ;
-  cardType: "Adhar" | "Voter" | "Optional" | 'SchoolId';
+  formType: "Father" | "Mother" | "Student" | "Teacher" | "Volunteer";
+  cardType:
+    | "Adhar"
+    | "Voter"
+    | "SchoolId"
+    | "Pan"
+    | "Passport"
+    | "Driving"
+    | "Profile";
   PositionType: "Front" | "Back";
   state: FormStateType;
   dispatch: React.Dispatch<FormAction>;
@@ -38,9 +46,11 @@ const ImageUploadForm = ({
       <div className="flex items-center">
         <input type="file" accept=".jpg,.jpeg" onChange={handleImageChange} />
         {previewUrl && (
-          <img
+          <Image
             src={previewUrl}
             alt="Preview"
+            width={1000}
+            height={1000}
             style={{
               maxWidth: "70px",
               maxHeight: "40px",

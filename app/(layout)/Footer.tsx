@@ -1,19 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import '@/app/components/style.css'
+import "@/app/components/style.css";
 
 const Footer = () => {
   return (
     <div>
       <div>
-        <footer className="  footer-img h-[60vh] text-white pt-8">
-          <div className="container  mt-[170px] mx-auto flex flex-col md:flex-row justify-between">
-            <div className="md:w-1/3">
+        <footer className="  footer-img relative h-[60vh] text-white pt-8">
+          <div className="container  absolute bottom-2 mt-[170px] mx-auto flex flex-col md:flex-row justify-between">
+            <div className="md:w-1/3 max-md:text-[2vh]  max-md:hidden">
               <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
               <p>Email: jansevaa31@gmail.com</p>
               <p>Phone: +91-9968966660</p>
             </div>
-            <div className="md:w-1/3 mt-6 md:mt-0">
+            <div className="md:w-1/3 mt-6 md:mt-0 max-md:hidden">
               <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
               <ul className="space-y-2">
                 <li>
@@ -43,7 +43,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="md:w-1/3 mt-6 md:mt-0">
+            <div className="md:w-1/3 mt-6 md:mt-0 max-md:text-[2vh]  max-sm:mb-10 ">
               <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
               <div className="flex  justify-start items-center  space-x-4">
                 <a href="#">
@@ -94,7 +94,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <p className="text-end mt-8 mr-2">
+          <p className="absolute right-0 bottom-2 max-sm:text-center  max-sm:text-[2vh]">
             &copy; {new Date().getFullYear()} Jansevaa Foundation. All rights
             reserved.
           </p>

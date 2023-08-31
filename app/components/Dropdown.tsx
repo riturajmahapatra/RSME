@@ -7,17 +7,19 @@ interface State {
   districts: string[];
 }
 
-function Dropdown(): JSX.Element {
+type DropdownProps = {
+  selectedState: string;
+  selectedDistrict: string;
+  handleStateChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleDistrictChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+};
+const Dropdown = ({
+  selectedState,
+  selectedDistrict,
+  handleStateChange,
+  handleDistrictChange,
+}: DropdownProps) => {
   const states: State[] = State.states;
-  const [selectedState, setSelectedState] = useState<string>("");
-  const [selectedDistrict, setSelectedDistrict] = useState<string>("");
-
-  const handleStateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newState = event.target.value;
-    setSelectedState(newState);
-    setSelectedDistrict(""); // Reset district selection
-  };
-
   return (
     <div className="flex gap-5">
       <select
@@ -42,7 +44,7 @@ function Dropdown(): JSX.Element {
           name="districtDropdown"
           id="districtDropdown"
           value={selectedDistrict}
-          onChange={(event) => setSelectedDistrict(event.target.value)}
+          onChange={handleDistrictChange}
         >
           <option value="">Select District</option>
           {selectedState &&
@@ -57,6 +59,6 @@ function Dropdown(): JSX.Element {
       </div>
     </div>
   );
-}
+};
 
 export default Dropdown;

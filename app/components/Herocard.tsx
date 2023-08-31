@@ -1,9 +1,10 @@
+import Image from "next/image";
 import React from "react";
 
 type HerocardType = {
   heading: string;
   description: string;
-  images?: string;
+  images: string;
   blob?: string;
   customClasses?: string;
 };
@@ -18,17 +19,18 @@ const Herocard = ({
   return (
     <div>
       <div className=" relative flex justify-end  gap-6 text-start">
-        <img
+        <Image
           src={images}
           className={`${customClasses}`}
           alt="wellness"
           width={120}
           height={120}
-        />{" "}
+        />
         <img
           src={blob}
+          alt="blob"
           className={`w-[200px] absolute -top-5 left-10  -z-10`}
-        />{" "}
+        />
         <div className="w-1/2">
           <h1 className="text-lg font-semibold uppercase">{heading}</h1>
           <p className="">{description}</p>
