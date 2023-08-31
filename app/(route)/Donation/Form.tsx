@@ -34,7 +34,7 @@ const Form = () => {
   const [pincode, setPincode] = useState<string>("");
 
   return (
-    <div className="container   mx-auto p-8">
+    <div className="container mx-auto p-8">
       <form /* onSubmit={onSubmit} */ className="">
         {" "}
         {/* add onsubmit using props */}

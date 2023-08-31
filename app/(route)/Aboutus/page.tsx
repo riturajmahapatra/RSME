@@ -88,99 +88,61 @@ const page = () => {
         </div>
         <br />
       </div>
-
-      <div className="mt-20  h-[30vh] flex flex-col gap-10 items-center w-full text-center">
-        <h1 className="text-[3rem] font-medium">Our Devotion Path</h1>
-        <div className="  grid grid-cols-4 mx-20">
-          <Herocard
-            heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए शिक्षा`}
-            description={
-              !isHindi
-                ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
-                : `बालकों के समावेशी शिक्षा, पोषण, और व्यापक विकास को प्रोत्साहित करना`
-            }
-            images="/icons/motivation1.svg"
-            customClasses="h-[100px] pl-6 w-[150px] "
-            blob="/images/blob6.svg"
-          />
-          <Herocard
-            heading={!isHindi ? `WELLNESS ACCESS` : `स्वास्थ्य पहुंच`}
-            description={
-              !isHindi
-                ? `Bringing essential medical services to remote and underserved communities`
-                : `दूरस्थ और सेवाहीन समुदायों में महत्वपूर्ण चिकित्सा सेवाएँ लाना`
-            }
-            images="/images/team-success.svg"
-            customClasses="h-20 "
-            blob="/images/blob7.svg"
-          />
-          <Herocard
-            heading={!isHindi ? `Learning For All` : `सभी के लिए शिक्षा`}
-            description={
-              !isHindi
-                ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
-                : `बालकों के समावेशी शिक्षा, पोषण, और व्यापक विकास को प्रोत्साहित करना`
-            }
-            images="/icons/team.svg"
-            customClasses="h-[90px] pl-6 w-[90px]"
-            blob="/images/blob5.svg"
-          />
-          <Herocard
-            heading={!isHindi ? `PATH TO PROSPERITY` : `समृद्धि की दिशा`}
-            description={
-              !isHindi
-                ? `Imparting skills and aiding the career journey of disadvantaged youth`
-                : `वंचित युवाओं के कौशल प्रदान करना और उनके करियर की यात्रा में सहायता करना`
-            }
-            images="/icons/trophy.svg"
-            customClasses="h-[90px] pl-6 w-[90px] "
-            blob="/images/blob1.svg"
-          />
-        </div>
+      {/* updated */}
+      <h1 className="text-[3rem] text-center font-medium">Our Devotion Path</h1>
+      <div className="flex items-center justify-center">
+        <hr className="flex h-px w-2/3 mb-20 items-center border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+      </div>
+      <div className="  grid grid-cols-4 mx-20 max-xl:grid-cols-2 max-xl:gap-16 max-md:grid-cols-1 max-md:gap-14 max-sm:w-full max-sm:flex max-sm:flex-col max-sm:-ml-6">
+        <Herocard
+          heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए सीखना`}
+          description={
+            !isHindi
+              ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
+              : `समावेशी शिक्षा, पोषण और बच्चों के समग्र विकास को बढ़ावा देना`
+          }
+          images="/icons/punch.svg"
+          customClasses="h-20 max-md:absolute max-md:left-20 max-sm:block"
+          blob="/images/blob6.svg"
+        />
+        <Herocard
+          heading={!isHindi ? `WELLNESS ACCESS` : `स्वास्थ्य पहुँच`}
+          description={
+            !isHindi
+              ? `Bringing essential medical services to remote and underserved communities`
+              : `दूरस्थ और असेवित समुदायों में आवश्यक चिकित्सा सेवाओं को लाना`
+          }
+          images="/images/team-success.svg"
+          customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
+          blob="/images/blob7.svg"
+        />
+        <Herocard
+          heading={!isHindi ? `Learning For All` : `सभी के लिए सीखना`}
+          description={
+            !isHindi
+              ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
+              : `समावेशी शिक्षा, पोषण और बच्चों के समग्र विकास को बढ़ावा देना `
+          }
+          customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
+          images="/icons/team.svg"
+          blob="/images/blob5.svg"
+        />
+        <Herocard
+          heading={!isHindi ? `PATH TO PROSPERITY` : `समृद्धि की ओर पथ`}
+          description={
+            !isHindi
+              ? `Imparting skills and aiding the career journey of disadvantaged youth`
+              : `अवसरवादी युवाओं के कौशलों को प्रदान करना और उनकी कैरियर यात्रा में सहायता करना`
+          }
+          customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
+          images="/icons/trophy.svg"
+          blob="/images/blob1.svg"
+        />
       </div>
 
-      <Separator className="w-[95vw] ml-[2vw] mt-16" />
+      {/* not updated */}
 
-      <div className="mt-20  h-[30vh] flex flex-col gap-10 items-center w-full ">
-        <h1 className="text-[3rem] font-medium">Our Objectives</h1>
-        <div className="  grid grid-cols-3 items-start justify-start  mx-20">
-          <Herocard
-            heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए शिक्षा`}
-            description={
-              !isHindi
-                ? `With every medical camp, every scholarship, and every skill imparted, we strive to uplift communities and individuals in need, creating a ripple effect of change that resonates far beyond the present moment.`
-                : `प्रत्येक चिकित्सा शिविर, प्रत्येक छात्रवृत्ति, और प्रत्येक कौशल प्रदान के साथ, हम समुदायों और जरूरतमंद व्यक्तियों की सहायता करने का प्रयास करते हैं, जो वर्तमान समय से बहुत दूर तक गूंजने वाले परिवर्तन की लहर को उत्पन्न करते हैं।`
-            }
-            images="/icons/punch.svg"
-            customClasses="h-[100px] pl-6 w-[150px] "
-            /*  blob="/images/blob7.svg" */
-          />
-          <Herocard
-            heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए शिक्षा`}
-            description={
-              !isHindi
-                ? `With every medical camp, every scholarship, and every skill imparted, we strive to uplift communities and individuals in need, creating a ripple effect of change that resonates far beyond the present moment.`
-                : `प्रत्येक चिकित्सा शिविर, प्रत्येक छात्रवृत्ति, और प्रत्येक कौशल प्रदान के साथ, हम समुदायों और जरूरतमंद व्यक्तियों की सहायता करने का प्रयास करते हैं, जो वर्तमान समय से बहुत दूर तक गूंजने वाले परिवर्तन की लहर को उत्पन्न करते हैं।`
-            }
-            images="/icons/punch.svg"
-            customClasses="h-[100px]  pl-6 w-[150px] "
-            /*  blob="/images/blob7.svg" */
-          />
-          <Herocard
-            heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए शिक्षा`}
-            description={
-              !isHindi
-                ? `With every medical camp, every scholarship, and every skill imparted, we strive to uplift communities and individuals in need, creating a ripple effect of change that resonates far beyond the present moment.`
-                : `प्रत्येक चिकित्सा शिविर, प्रत्येक छात्रवृत्ति, और प्रत्येक कौशल प्रदान के साथ, हम समुदायों और जरूरतमंद व्यक्तियों की सहायता करने का प्रयास करते हैं, जो वर्तमान समय से बहुत दूर तक गूंजने वाले परिवर्तन की लहर को उत्पन्न करते हैं।`
-            }
-            images="/icons/punch.svg"
-            customClasses="h-[100px] pl-6 w-[150px] "
-            /*  blob="/images/blob7.svg" */
-          />
-        </div>
-      </div>
-
-      <div className="flex items-center justify-center mt-28  ">
+      <div className="flex items-center justify-center mt-28 mb-20 ">
         <p className="text-[1.2rem] text-center font-bold w-[75vw]">
           {!isHindi
             ? `Join us in our mission to sow the seeds of change, nurture them with compassion, and watch as they grow into a future brimming with promise. Welcome to Jansevaa – where every action, no matter how small, is a step towards a brighter tomorrow.`

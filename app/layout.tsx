@@ -6,6 +6,7 @@ import { Lang } from "./context/LangToggleContext";
 import Footer from "./(layout)/Footer";
 import ClientOnly from "./components/ClientOnly";
 import ToasterProvider from "./providers/ToasterProvider";
+import Head from "next/head";
 
 const Font = Urbanist({ subsets: ["latin"] });
 
@@ -19,7 +20,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en">
       <body className={Font.className}>
