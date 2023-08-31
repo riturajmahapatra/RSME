@@ -20,6 +20,8 @@ const Hero = () => {
 
   const { isHindi } = ContextAccess();
 
+  /* header is in access as a file where banner carousel is being added */
+
   return (
     <div>
       <main>
@@ -41,48 +43,42 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div className="mt-20 h-[50vh] max-sm:h-[70vh] w-full bg-[#efe3ce8a] text-center">
+        <div className="mt-20 h-[50vh] w-full bg-[#efe3ce8a] text-center">
           <br />
-          <h1 className="uppercase font-extrabold text-[3.5rem] max-md:text-[4.5vh] max-sm:text-[3vh] mt-3">
+          <h1 className="uppercase font-extrabold text-[3.5vw] max-md:text-[20px] ">
             {!isHindi ? `Our Accomplishments` : `हमारी प्राप्तियाँ`}
           </h1>
           {/* numbers */}
-          <div className="items-center flex justify-center ">
-            <div className="flex items-center justify-evenly w-1/2 max-md:w-full max-sm:flex-col mt-[3rem] max-md:mt-[3vh] max-sm:text-[2vh] ">
-              <h1 className="grid  font-bold text-[2rem] max-md:text-[3vh] max-sm:text-[3vh]">
-                <span className="text-[4rem] max-md:text-[6vh] max-sm:text-[4vh]">
-                  15+{" "}
-                </span>
-                <span className="uppercase mb-4 max-sm:text-[4vh]">
+          <div className="">
+            <div className="flex items-center justify-evenly w-full xl:text-[3rem] lg:text-[2rem] lg:mt-10 max-lg:block max-lg:text-[3vw]  max-md:text-[20px] ">
+              <h1 className="grid  font-bold  ">
+                <span className="">15+ </span>
+                <span className="uppercase mb-4">
                   {!isHindi ? `Thousands` : `हजारों`}
                 </span>
-                <span className="text-[1.5rem] max-md:text-[3vh] max-sm:text-[2vh] font-normal">
+                <span className="text-[1.2vw] max-md:text-[15px] lg:text-[1rem] font-normal">
                   {!isHindi
                     ? `children and their families are impacted every year`
                     : `हर साल बच्चे और उनके परिवार पर प्रभाव डालते हैं`}
                 </span>
               </h1>
-              <h1 className="grid  font-bold text-[2rem] max-md:text-[3vh] max-sm:text-[3vh]">
-                <span className="text-[4rem] max-md:text-[6vh] max-sm:text-[4vh]">
-                  120+
-                </span>
+              <h1 className="grid  font-bold ">
+                <span className="text-4rem">120+</span>
                 <span className="uppercase mb-4">
                   {!isHindi ? `Projects` : `परियोजनाएँ`}
                 </span>
-                <span className="text-[1.5rem] max-md:text-[3vh] max-sm:text-[2vh] font-normal">
+                <span className="text-[1.2vw] max-md:text-[15px] lg:text-[1rem] font-normal">
                   {!isHindi
                     ? `focused on education, healthcare, and women empowerment`
                     : `शिक्षा, स्वास्थ्य सेवाएँ और महिला सशक्तिकरण पर केंद्रित`}
                 </span>
               </h1>
-              <h1 className="grid  font-bold text-[2rem] max-md:text-[3vh] max-sm:text-[3vh]">
-                <span className="text-[4rem] max-md:text-[6vh] max-sm:text-[4vh]">
-                  25+
-                </span>
+              <h1 className="grid  font-bold ">
+                <span className="text-4rem">25+</span>
                 <span className="uppercase mb-4">
                   {!isHindi ? `States` : `राज्यों`}
                 </span>
-                <span className="text-[1.5rem] max-md:text-[3vh] max-sm:text-[2vh] font-normal">
+                <span className="text-[1.2vw] max-md:text-[15px] lg:text-[1rem] font-normal">
                   {!isHindi
                     ? `are reached including the remotest areas`
                     : `समेत होते हैं सबसे दूर क्षेत्रों तक पहुँचाया जाता है`}
@@ -91,6 +87,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
         {/* programms */}
 
         <div className="mt-20  h-[30vh] flex flex-col gap-10 items-center w-full text-center">
@@ -145,9 +142,9 @@ const Hero = () => {
             />
           </div>
         </div>
-
+        {/*  lg:grid lg:grid-cols-4   max-md:mt-[65vh] max-md:justify-center max-sm:mt-[100vh] flex-wrap */}
         {/* cards */}
-        <div className="flex my-20 justify-between mx-10  lg:grid lg:grid-cols-4   max-md:mt-[65vh] max-md:justify-center max-sm:mt-[100vh] flex-wrap gap-10 ">
+        <div className="flex my-20 justify-evenly mx-10 max-xl  lg:grid lg:grid-cols-4  max-xl:mt-[30vh] max-md:mt-[60vh] max-sm:justify-center  flex-wrap   gap-10 ">
           <Cards
             heading={
               !isHindi ? `Knowledge Equality Initiative` : `ज्ञान समानता पहल`

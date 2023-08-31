@@ -40,7 +40,7 @@ const BannerCarousel: React.FC<PropType> = ({
               <Image
                 width={1000}
                 height={800}
-                className="banner-embla__slide__img block w-full rounded-xl  object-cover"
+                className="banner-embla__slide__img block w-full   object-cover"
                 src={imageByIndex(index)}
                 alt="Carousel Images"
               />

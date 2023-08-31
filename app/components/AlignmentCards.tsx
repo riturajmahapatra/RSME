@@ -17,7 +17,7 @@ const AlignmentCards = ({
 }: AlignmentCardsType) => {
   return (
     <div
-      className={`relative flex justify-between items-center m-[5vw] ${
+      className={`relative redborder max-xl:flex-col max-xl:gap-4 max-xl:text-center flex justify-between items-center m-[5vw] ${
         isImageLeft ? "flex-row-reverse" : ""
       }`}
     >
@@ -36,8 +36,10 @@ const AlignmentCards = ({
       </div>
 
       {/* Text container */}
-      <div className="w-2/3">
-        <h1 className="text-xl text-start font-semibold ">{heading}</h1>
+      <div className="w-2/3 max-xl:w-full ">
+        <h1 className="text-xl max-xl:text-center text-start font-semibold ">
+          {heading}
+        </h1>
       </div>
     </div>
   );
