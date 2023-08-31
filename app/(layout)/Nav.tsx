@@ -79,11 +79,6 @@ const Nav = ({}: NavType) => {
               </Button>
             </Link>
 
-            <Link href={"/login"}>
-              <Button className=" text-[1.1rem] font-semibold glow-on-hover">
-                Login
-              </Button>
-            </Link>
           </ul>
         </div>
       </nav>
