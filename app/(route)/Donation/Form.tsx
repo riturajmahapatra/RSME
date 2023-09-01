@@ -8,7 +8,7 @@ import {
 import RazorpayButton from "@/components/razorpaybutton";
 import axios from "axios";
 
-const Form = async () => {
+const Form = () => {
   const [fullName, setFullName] = useState<string>("");
 
   const [number, setNumber] = useState<number>();
@@ -34,39 +34,42 @@ const Form = async () => {
 
   const [pincode, setPincode] = useState<string>("");
 
-  const response = await axios.post(
-    "http://localhost:5000/doners",
-    {
-      //backend     frontend
-      full_name: fullName,
-      phone_number: String(number),
-      amount: String(donationAmt),
-      email: userEmail,
-      DOB: String(DOB),
-      sex: sex,
-      pan_card: panCard,
-      street: street,
-      city: city,
-      state: state,
-      country: country,
-      pincode: pincode,
-    },
-    {
-      headers: {
-        "Access-Control-Allow-Origin": "*", // Replace with your allowed origin(s)
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Content-Type": "application/json",
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const response = await axios.post(
+      "http://localhost:5000/doners",
+      {
+        //backend     frontend
+        full_name: fullName,
+        phone_number: String(number),
+        amount: String(donationAmt),
+        email: userEmail,
+        DOB: String(DOB),
+        sex: sex,
+        pan_card: panCard,
+        street: street,
+        city: city,
+        state: state,
+        country: country,
+        pincode: pincode,
       },
-    }
-  );
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Replace with your allowed origin(s)
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  console.log(response.data.message);
-  console.log(response.data);
-
+    console.log(response.data.message);
+    console.log(response.data);
+  };
   return (
     <div className="container mx-auto p-8">
-      <form /* onSubmit={onSubmit} */ className="">
+      <form onSubmit={handleSubmit} className="">
         {" "}
         {/* add onsubmit using props */}
         <h2 className="text-4xl font-semibold mb-4">Make a Donation</h2>
