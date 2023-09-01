@@ -6,6 +6,8 @@ import BannerCarousel from "@/components/ui/carousel";
 import AlignmentCards from "./AlignmentCards";
 import { Separator } from "@/components/ui/separator";
 import { ContextAccess } from "./ContextAccess";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const footerimages: string[] = [
@@ -242,6 +244,18 @@ const Hero = () => {
             cardtext={!isHindi ? `EMPOWERING HER` : `उसे सशक्त बनाना`}
           />
           <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+        </div>
+
+        {/* report raise */}
+        <div className=" bottom-10 z-10 fixed right-10 ">
+          <Link href={"/Report"}>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            >
+              Report an Issue ?
+            </button>
+          </Link>
         </div>
       </main>
     </div>
