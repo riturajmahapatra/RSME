@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import State from "@/app/assets/State.json";
+import axios from "axios";
 
 interface State {
   state: string;
@@ -8,18 +9,66 @@ interface State {
 }
 
 type DropdownProps = {
-  selectedState: string;
-  selectedDistrict: string;
-  handleStateChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  handleDistrictChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectedBranchId: number | null;
+  setSelectedBranchId: React.Dispatch<React.SetStateAction<number | null>>;
 };
-const Dropdown = ({
-  selectedState,
-  selectedDistrict,
-  handleStateChange,
-  handleDistrictChange,
-}: DropdownProps) => {
+const Dropdown = ({ selectedBranchId, setSelectedBranchId }: DropdownProps) => {
   const states: State[] = State.states;
+  const branchData = [
+    { id: 1, branchName: "Bijwasan" },
+    { id: 2, branchName: "Chhawala" },
+    { id: 3, branchName: "TilakNagar" },
+    { id: 4, branchName: "Kapashera" },
+    { id: 5, branchName: "Safdarjang" },
+    { id: 6, branchName: "testing purpose" },
+    { id: 7, branchName: "Delhi" },
+    { id: 8, branchName: "Mumbai" },
+  ];
+
+  const [selectedState, setSelectedState] = useState<string>("");
+  const [selectedDistrict, setSelectedDistrict] = useState<string>("");
+  const [selectedBranch, setSelectedBranch] = useState<string>("");
+
+  const handleStateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedState(event.target.value);
+    setSelectedDistrict("");
+    setSelectedBranch("");
+  };
+
+  const handleDistrictChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedDistrict(event.target.value);
+    setSelectedBranch("");
+  };
+
+  const handleBranchChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedBranch(event.target.value);
+
+    const findBranchId = branchData.find(
+      (branch) => branch.branchName === event.target.value
+    );
+    if (findBranchId) {
+      setSelectedBranchId(findBranchId.id);
+    }
+  };
+
+  // Push the state and district to the backend and get the branch data from there
+  useEffect(() => {
+    if (selectedDistrict && selectedState) {
+      axios
+        .get(
+          `${process.env.API_REQUEST_URL}/api/branch/${selectedState}/${selectedDistrict}`
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [selectedState, selectedDistrict]);
+
   return (
     <div className="flex gap-5">
       <select
@@ -55,6 +104,26 @@ const Dropdown = ({
                   {district}
                 </option>
               ))}
+        </select>
+      </div>
+
+      {/* Branch */}
+      <div>
+        <select
+          className="w-[250px] rounded-md border px-3 py-2 text-lg font-semibold"
+          name="districtDropdown"
+          id="districtDropdown"
+          value={selectedBranch}
+          onChange={handleBranchChange}
+        >
+          <option value="">Select Branch</option>
+          {selectedDistrict &&
+            branchData &&
+            branchData.map((branch) => (
+              <option key={branch.id} value={branch.branchName}>
+                {branch.branchName}
+              </option>
+            ))}
         </select>
       </div>
     </div>

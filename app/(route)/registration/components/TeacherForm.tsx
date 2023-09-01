@@ -3,12 +3,14 @@ import {
   BloodGroup,
   Email,
   FrontBackImage,
-  IdProf,
   Name,
+  Password,
   PhoneNo,
 } from "./FormComp";
 import { initialState } from "./InitialState";
 import ImageUploadForm from "./ImageUploadForm";
+import Dropdown from "@/app/components/Dropdown";
+import { AddressFormDetails } from "./AddressComp";
 
 const TeacherFormReducer = (state: FormStateType, action: FormAction) => {
   switch (action.type) {
@@ -52,6 +54,9 @@ const TeacherForm = () => {
     });
   };
 
+  // To manage branch
+  const [selectedBranchId, setSelectedBranchId] = useState<number | null>(null);
+
   const printData = () => {
     console.log("TeacherFirstName: ", state.TeacherFirstName);
     console.log("TeacherLastName: ", state.TeacherLastName);
@@ -60,15 +65,18 @@ const TeacherForm = () => {
     console.log("TeacherDOB: ", state.TeacherDOB);
     console.log("TeacherSex: ", state.TeacherSex);
     console.log("TeacherEmail: ", state.TeacherEmail);
+    console.log("TeacherPassword: ", state.TeacherPassword);
+    console.log("TeacherBranchId: ", selectedBranchId);
     console.log("TeacherProfileCardFront: ", state.TeacherProfileCardFront);
-    console.log("TeacherAdharCardFront: ", state.TeacherAdharCardFront);
-    console.log("TeacherAdharCardBack: ", state.TeacherAdharCardBack);
+    console.log("TeacherAdharCardFront: ", state.TeacherAadharCardFront);
+    console.log("TeacherAdharCardBack: ", state.TeacherAadharCardBack);
     console.log("TeacherVoterCardFront: ", state.TeacherVoterCardFront);
     console.log("TeacherVoterCardBack: ", state.TeacherVoterCardBack);
     console.log("TeacherPanCardFront: ", state.TeacherPanCardFront);
     console.log("TeacherPassportCardFront: ", state.TeacherPassportCardFront);
     console.log("TeacherDrivingCardFront: ", state.TeacherDrivingCardFront);
     console.log("TeacherDrivingCardBack: ", state.TeacherDrivingCardBack);
+    console.log("TeacherAddress: ", state.TeacherAddress);
   };
 
   const sendTeacherData = () => {
@@ -84,8 +92,8 @@ const TeacherForm = () => {
       state.TeacherBloodGroup === "Select One" ||
       state.TeacherSex === "Select One" ||
       state.TeacherProfileCardFront === null ||
-      state.TeacherAdharCardFront === null ||
-      state.TeacherAdharCardBack === null ||
+      state.TeacherAadharCardFront === null ||
+      state.TeacherAadharCardBack === null ||
       state.TeacherVoterCardFront === null ||
       state.TeacherVoterCardBack === null ||
       state.TeacherPanCardFront === null
@@ -103,7 +111,12 @@ const TeacherForm = () => {
       <div className="flex flex-col gap-5 p-10">
         {/* Name */}
         <div className="flex gap-10">
-          <Name formType="Teacher" state={state} dispatch={dispatch} />
+          <Name
+            isRequired={true}
+            formType="Teacher"
+            state={state}
+            dispatch={dispatch}
+          />
         </div>
 
         <div className="flex gap-10">
@@ -118,6 +131,16 @@ const TeacherForm = () => {
         {/* Email */}
         <div className="flex gap-10">
           <Email
+            formType="Teacher"
+            state={state}
+            dispatch={dispatch}
+            isRequired={true}
+          />
+        </div>
+
+        {/* Password */}
+        <div className="flex gap-10">
+          <Password
             formType="Teacher"
             state={state}
             dispatch={dispatch}
@@ -148,6 +171,7 @@ const TeacherForm = () => {
           </select>
         </div>
 
+        {/* DOB */}
         <div className="flex gap-10">
           <span className="text-base font-semibold">DOB: </span>
           <input
@@ -184,7 +208,16 @@ const TeacherForm = () => {
             <option value="Others">Others</option>
           </select>
         </div>
+        {/* Choose Branch */}
+        <div className="flex items-center gap-5 my-5">
+          <span className="text-base font-semibold">Chose Your Branch</span>
+          <Dropdown
+            selectedBranchId={selectedBranchId}
+            setSelectedBranchId={setSelectedBranchId}
+          />
+        </div>
 
+        {/* Profile Photo */}
         <div className="flex gap-10 items-center">
           <span className="text-base font-semibold">Profile Photo: </span>
           <ImageUploadForm
@@ -198,14 +231,15 @@ const TeacherForm = () => {
 
         {/* Id Proof */}
         <div className="flex gap-1">
-          <span className="text-lg w-32 font-semibold">{`ID Proof:`}</span>
+          <span className="text-base w-32 font-semibold">{`ID Proof:`}</span>
           <div className="flex  flex-wrap gap-6">
             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
               <FrontBackImage
-                cardType={"Adhar"}
+                cardType={"Aadhar"}
                 formType={"Teacher"}
                 state={state}
                 dispatch={dispatch}
+                isRequired={true}
               />
             </div>
 
@@ -215,11 +249,12 @@ const TeacherForm = () => {
                 formType={"Teacher"}
                 state={state}
                 dispatch={dispatch}
+                isRequired={true}
               />
             </div>
             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
               <div className="flex gap-10 items-center">
-                <span className="text-lg font-bold">PanCard</span>
+                <span className="text-base font-bold">PanCard</span>
                 <ImageUploadForm
                   formType={"Teacher"}
                   cardType={"Pan"}
@@ -249,6 +284,7 @@ const TeacherForm = () => {
                     formType={"Teacher"}
                     state={state}
                     dispatch={dispatch}
+                    isRequired={true}
                   />
                 </div>
               ) : selectedIdProof === "Select One" ? (
@@ -267,7 +303,18 @@ const TeacherForm = () => {
             </div>
           </div>
         </div>
+
+        {/* Address */}
+        <div className="flex flex-col gap-5">
+          <AddressFormDetails
+            formType="Teacher"
+            state={state}
+            dispatch={dispatch}
+          />
+        </div>
       </div>
+
+      <div className="flex gap-10"></div>
 
       <div className="flex justify-center">
         <button
