@@ -14,43 +14,51 @@ const Footer = () => {
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600 text-white">
                 Find us on any of these platforms, we respond 1-2 business days.
               </h5>
-              <div className="mt-6 lg:mb-0 mb-6">
-                <button
-                  className=" text-lightBlue-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <img
-                    src="/images/socials/twitter.svg"
-                    alt="logo"
-                    className="w-[9 0%]"
-                  />
-                </button>
-                <button
-                  className=" text-lightBlue-600 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <img
-                    src="/images/socials/facebook.svg"
-                    alt="logo"
-                    className="w-[80%]"
-                  />
-                </button>
-                <button
-                  className=" text-pink-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <img src="/images/socials/youtube.svg" alt="logo" />
-                </button>
-                <button
-                  className=" text-blueGray-800  font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <img
-                    src="/images/socials/instagram.svg"
-                    alt="logo"
-                    className="w-[80%]"
-                  />
-                </button>
+              <div className="mt-6 lg:mb-0 mb-6 flex gap-8">
+                <a href="https://www.twitter.com/">
+                  <button
+                    className=" text-lightBlue-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                    type="button"
+                  >
+                    <img
+                      src="/images/socials/twitter.svg"
+                      alt="logo"
+                      className="w-[9 0%]"
+                    />
+                  </button>
+                </a>
+                <a href="https://www.facebook.com/">
+                  <button
+                    className=" text-lightBlue-600 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                    type="button"
+                  >
+                    <img
+                      src="/images/socials/facebook.svg"
+                      alt="logo"
+                      className="w-[80%]"
+                    />
+                  </button>
+                </a>
+                <a href="https://www.youtube.com/">
+                  <button
+                    className=" text-pink-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                    type="button"
+                  >
+                    <img src="/images/socials/youtube.svg" alt="logo" />
+                  </button>
+                </a>
+                <a href="https://www.instagram.com/">
+                  <button
+                    className=" text-blueGray-800  font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                    type="button"
+                  >
+                    <img
+                      src="/images/socials/instagram.svg"
+                      alt="logo"
+                      className="w-[80%]"
+                    />
+                  </button>
+                </a>
               </div>
             </div>
             <div className="w-full lg:w-6/12 px-4">

@@ -43,20 +43,20 @@ const ImageUploadForm = ({
 
   return (
     <>
-      <div className="flex items-center">
-        <input type="file" accept=".jpg,.jpeg" onChange={handleImageChange} />
+      <div className="-ml-6 text-sm flex items-center">
+        <input
+          className="ml-4"
+          type="file"
+          accept=".jpg,.jpeg"
+          onChange={handleImageChange}
+        />
         {previewUrl && (
           <Image
             src={previewUrl}
             alt="Preview"
             width={1000}
             height={1000}
-            style={{
-              maxWidth: "70px",
-              maxHeight: "40px",
-              borderRadius: "5px",
-              marginBottom: "10px",
-            }}
+            className="w-16 -ml-16"
           />
         )}
       </div>

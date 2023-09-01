@@ -1,6 +1,5 @@
 import { Dispatch, useState } from "react";
 import ImageUploadForm from "./ImageUploadForm";
-
 /* eslint-disable @next/next/no-img-element */
 type formType =
   // "Father" |
@@ -8,7 +7,6 @@ type formType =
   // "Student" |
   // "Volunteer"|
   "Teacher";
-
 type CardType =
   | "Aadhar"
   | "Voter"
@@ -17,7 +15,6 @@ type CardType =
   | "Passport"
   | "Driving"
   | "Profile";
-
 interface FormCompProps {
   cardType?: CardType;
   formType: formType;
@@ -25,7 +22,6 @@ interface FormCompProps {
   state: FormStateType;
   dispatch: Dispatch<FormAction>;
 }
-
 export const Name = ({
   formType,
   isRequired,
@@ -51,7 +47,6 @@ export const Name = ({
         }
         required={isRequired}
       />
-
       {/* <Middle Name */}
       <input
         className="outline-none border-b-2 border-slate-200"
@@ -86,9 +81,7 @@ export const Name = ({
     </>
   );
 };
-
 // ----------------------------------------------------------------------
-
 export const PhoneNo = ({
   formType,
   isRequired,
@@ -98,14 +91,14 @@ export const PhoneNo = ({
   return (
     <>
       {/* Phone no. */}
-      <div className="flex gap-9">
-        <span className="text-base font-semibold">{`Phone:`}</span>
+      <div className="flex gap-3">
+        <span className="text-lg font-semibold">{`Phone:`}</span>
         <input
-          className="outline-none border-b-2 border-slate-200"
-          type="number"
+          className="redborder w-[30vw] border-b-2 border-slate-200"
+          type="tel"
           name="FatherPhoneNo"
           pattern="[6-9]{1}[0-9]{9}"
-          placeholder="000-000-0000"
+          placeholder="phone no."
           required={isRequired}
           value={state[`${formType}PhoneNo`]}
           onChange={(e) =>
@@ -131,9 +124,7 @@ export const PhoneNo = ({
     </>
   );
 };
-
 // ---------------------------------------------
-
 export const BloodGroup = ({
   formType,
   isRequired,
@@ -158,14 +149,12 @@ export const BloodGroup = ({
           })
         }
       />
-
       <abbr title="Help us match you with donors when urgent needs arise.">
         <img src="/info.svg" alt="Info" width={20} />
       </abbr>
     </>
   );
 };
-
 // ---------------------------------------------
 export const Email = ({
   formType,
@@ -194,8 +183,6 @@ export const Email = ({
     </>
   );
 };
-
-
 // ---------------------------------------------------
 export const Password = ({
   formType,
@@ -224,18 +211,15 @@ export const Password = ({
     </>
   );
 };
-
 // ---------------------------------------------
 
 // export const IdProf = ({ formType, state, dispatch }: FormCompProps) => {
 //   const [selectedIdProof, setSelectedIdProof] = useState("Select One");
-
 //   const handleIdProofChange = (event: {
 //     target: { value: React.SetStateAction<string> };
 //   }) => {
 //     setSelectedIdProof(event.target.value);
 //   };
-
 //   return (
 //     <>
 //       <span className="text-lg font-semibold">{`ID Proof:`}</span>
@@ -253,7 +237,6 @@ export const Password = ({
 //                 dispatch={dispatch}
 //               />
 //             </div>
-
 //             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
 //               <FrontBackImage
 //                 cardType={"Voter"}
@@ -262,7 +245,6 @@ export const Password = ({
 //                 dispatch={dispatch}
 //               />
 //             </div>
-
 //             <div className="flex gap-6 items-center ">
 //               <select
 //                 className="outline-none font-semibold border-b-2 border-slate-200"
@@ -301,7 +283,6 @@ export const Password = ({
 //             </div>
 //           </>
 //         )}
-
 //         {formType === "Student" && (
 //           <>
 //             <div className="flex flex-col gap-2 border-b-2 p-2 rounded-lg">
@@ -330,9 +311,7 @@ export const Password = ({
 //     </>
 //   );
 // };
-
 //  ---------------------------------------------
-
 export const FrontBackImage = ({
   cardType,
   formType,
