@@ -12,7 +12,6 @@ const page = () => {
   const [phone_no, setNumber] = useState<number | undefined>();
   const [userEmail, setUserEmail] = useState<string>("");
   const [textArea, setTextArea] = useState<string>("");
-  console.log(typeof phone_no);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -68,7 +67,7 @@ const page = () => {
               Full Name <span className="font-bold text-red-400">*</span>
             </label>
             <input
-              type="text"
+              type="string"
               id="full_name"
               name="full_name"
               className="border rounded p-2 w-full"
