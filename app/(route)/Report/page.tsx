@@ -1,53 +1,67 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { Description } from "@radix-ui/react-dialog";
+import axios from "axios";
 
 import { useState } from "react";
 /* import React, { useState } from "react";
  */
 
 const page = () => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("/api/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName,
-          userEmail,
-          number,
-          textArea,
-        }),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to submit the data. Please try again.");
-      }
-      const data = await response.json();
-      // Handle response if necessary
-    } catch (error) {
-      // Handle error if necessary
-      console.error(error);
-    }
-  };
-
   const [fullName, setFullName] = useState<string>("");
-
-  const [number, setNumber] = useState<number>();
-
+  const [phone_no, setNumber] = useState<number | undefined>();
   const [userEmail, setUserEmail] = useState<string>("");
-
   const [textArea, setTextArea] = useState<string>("");
-  console.log(textArea);
+  console.log(typeof phone_no);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const response = await axios.post(
+      "http://localhost:5000/reporters",
+      {
+        full_name: fullName,
+        phone_no: String(phone_no),
+        email: userEmail,
+        description: textArea,
+      },
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Replace with your allowed origin(s)
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Content-Type": "application/json",
+          // Add any other CORS headers you need
+        },
+      }
+    );
+
+    console.log(response.data.message);
+    console.log(response.data);
+    // BranchDummyData = response.data;
+    // setBranchLoading(false);
+    // } catch (error) {
+    //   if (error.response) {
+    //     // The request was made, but the server responded with an error status code
+    //     console.error("Server responded with error:", error.response.status);
+    //     console.error("Error data:", error.response.data);
+    //   } else if (error.request) {
+    //     // The request was made, but no response was received (network error)
+    //     console.error("No response received from the server:", error.request);
+    //   } else {
+    //     // Something else happened while setting up the request (client-side error)
+    //     console.error("Error while setting up the request:", error.message);
+    //   }
+    //   console.error("Error:", error);
+    //   // Handle errors here and setBranchLoading(false) if needed
+    // }
+  };
 
   return (
     <div className="container mx-auto py-[30vh]  p-8">
       <form onSubmit={handleSubmit} className=" flex justify-center">
-        {" "}
-        {/* add onsubmit using props */}
         <div className="bg-white rounded shadow-md p-6 grid grid-cols-1 gap-5 w-2/3">
           <h2 className="text-4xl font-semibold mb-4">Raise an Issue</h2>
+
           {/* Full Name Field */}
           <div className="mb-4">
             <label htmlFor="full_name" className="block font-medium">
@@ -59,7 +73,6 @@ const page = () => {
               name="full_name"
               className="border rounded p-2 w-full"
               placeholder="Mukesh"
-              // required
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
             />
@@ -76,9 +89,8 @@ const page = () => {
               name="phone_no"
               className="border rounded p-2 w-full"
               placeholder="000-000-0000"
-              // required
-              value={number}
-              pattern="[6-9]{1}[0-9]{9}"
+              value={phone_no}
+              // pattern=/[6-9]{1}[0-9]{9}
               onChange={(e) => setNumber(e.target.valueAsNumber)}
             />
           </div>
@@ -94,7 +106,6 @@ const page = () => {
               name="email"
               className="border rounded p-2 w-full"
               placeholder="JohnDoe@gmail.com"
-              // required
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
             />
@@ -110,12 +121,12 @@ const page = () => {
             </label>
             <textarea
               id="message"
-              rows="9"
+              rows={9}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Leave a comment..."
               value={textArea}
               onChange={(e) => setTextArea(e.target.value)}
-            ></textarea>
+            />
             <div>
               <button
                 type="submit"
@@ -130,4 +141,5 @@ const page = () => {
     </div>
   );
 };
+
 export default page;
