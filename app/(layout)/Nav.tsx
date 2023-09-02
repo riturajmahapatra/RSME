@@ -22,9 +22,9 @@ const Nav: React.FC = () => {
 
   return (
     <main className="fixed z-10 bg-white w-full border-b-2 border-slate-200">
-      <nav className="flex flex-col md:flex-row mx-4 md:mx-8 lg:mx-16 my-2">
+      <nav className="flex flex-col max md:flex-row mx-4 md:mx-8 lg:mx-16 my-2">
         <Link href={"/"}>
-          <div className="flex gap-2 items-center justify-start md:gap-4">
+          <div className="max-md:w-[60%] flex gap-2 items-center justify-start md:gap-4">
             <div className="relative h-12 w-12 md:h-20 md:w-20">
               <Image src={logo} alt="Blob" fill className="" />
             </div>

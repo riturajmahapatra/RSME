@@ -1,10 +1,4 @@
-import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import RazorpayButton from "@/components/razorpaybutton";
 import axios from "axios";
 
@@ -18,7 +12,6 @@ const Form = async () => {
   const [userEmail, setUserEmail] = useState<string>("");
 
   const [DOB, setDOB] = useState<string>("");
-  console.log(DOB);
 
   const [sex, setSex] = useState<string>("");
 

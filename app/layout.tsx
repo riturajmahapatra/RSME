@@ -7,6 +7,7 @@ import Footer from "./(layout)/Footer";
 import ClientOnly from "./components/ClientOnly";
 import ToasterProvider from "./providers/ToasterProvider";
 import Head from "next/head";
+import Link from "next/link";
 
 const Font = Urbanist({ subsets: ["latin"] });
 
@@ -28,6 +29,16 @@ export default async function RootLayout({
           <Nav />
 
           {children}
+          <div className=" bottom-10 z-10 fixed right-10 ">
+            <Link href={"/Report"}>
+              <button
+                type="button"
+                className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              >
+                Report an Issue ?
+              </button>
+            </Link>
+          </div>
           <Footer />
         </Lang>
       </body>
