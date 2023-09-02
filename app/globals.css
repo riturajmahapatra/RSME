@@ -67,6 +67,9 @@
 }
  
 @layer base {
+  .redborder{
+    border:1px solid red;
+  }
   * {
     @apply border-border;
   }
