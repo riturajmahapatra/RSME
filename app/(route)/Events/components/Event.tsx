@@ -15,7 +15,7 @@ export const Event = () => {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <>
-      <div className=" flex">
+      <div className="flex">
         <div className="p-[20vh] w-2/3 ">
           <div className="flex w-full item-center justify-center pb-10">
             <span className="font-bold text-xl">List of all our Events</span>
