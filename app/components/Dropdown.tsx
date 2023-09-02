@@ -70,7 +70,7 @@ const Dropdown = ({ selectedBranchId, setSelectedBranchId }: DropdownProps) => {
   }, [selectedState, selectedDistrict]);
 
   return (
-    <div className="flex gap-5">
+    <div className="flex max-xl:flex-col gap-5 ml-10">
       <select
         className="w-[250px] rounded-md border px-3 py-2 text-lg font-semibold"
         name="stateDropdown"
