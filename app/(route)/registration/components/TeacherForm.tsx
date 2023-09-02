@@ -11,6 +11,7 @@ import { initialState } from "./InitialState";
 import ImageUploadForm from "./ImageUploadForm";
 import Dropdown from "@/app/components/Dropdown";
 import { AddressFormDetails } from "./AddressComp";
+import axios from "axios";
 
 const TeacherFormReducer = (state: FormStateType, action: FormAction) => {
   switch (action.type) {
@@ -57,28 +58,6 @@ const TeacherForm = () => {
   // To manage branch
   const [selectedBranchId, setSelectedBranchId] = useState<number | null>(null);
 
-  const printData = () => {
-    console.log("TeacherFirstName: ", state.TeacherFirstName);
-    console.log("TeacherLastName: ", state.TeacherLastName);
-    console.log("TeacherPhoneNo: ", state.TeacherPhoneNo);
-    console.log("TeacherBloodGroup: ", state.TeacherBloodGroup);
-    console.log("TeacherDOB: ", state.TeacherDOB);
-    console.log("TeacherSex: ", state.TeacherSex);
-    console.log("TeacherEmail: ", state.TeacherEmail);
-    console.log("TeacherPassword: ", state.TeacherPassword);
-    console.log("TeacherBranchId: ", selectedBranchId);
-    console.log("TeacherProfileCardFront: ", state.TeacherProfileCardFront);
-    console.log("TeacherAdharCardFront: ", state.TeacherAadharCardFront);
-    console.log("TeacherAdharCardBack: ", state.TeacherAadharCardBack);
-    console.log("TeacherVoterCardFront: ", state.TeacherVoterCardFront);
-    console.log("TeacherVoterCardBack: ", state.TeacherVoterCardBack);
-    console.log("TeacherPanCardFront: ", state.TeacherPanCardFront);
-    console.log("TeacherPassportCardFront: ", state.TeacherPassportCardFront);
-    console.log("TeacherDrivingCardFront: ", state.TeacherDrivingCardFront);
-    console.log("TeacherDrivingCardBack: ", state.TeacherDrivingCardBack);
-    console.log("TeacherAddress: ", state.TeacherAddress);
-  };
-
   const sendTeacherData = () => {
     // validate that all the fields are filled
     if (
@@ -96,14 +75,56 @@ const TeacherForm = () => {
       state.TeacherAadharCardBack === null ||
       state.TeacherVoterCardFront === null ||
       state.TeacherVoterCardBack === null ||
-      state.TeacherPanCardFront === null
+      state.TeacherPanCardFront === null ||
+      selectedBranchId === null ||
+      state.TeacherPassword === "" ||
+      state.TeacherAddressStreet === "" ||
+      state.TeacherAddressCity === "" ||
+      state.TeacherAddressState === "" ||
+      state.TeacherAddressPincode === 0 ||
+      state.TeacherAddressCountry === "India"
     ) {
       alert("Please fill all the fields");
     } else {
-      // hit the api to the backend using axios
-      console.log("Teachers form is dane ");
+      const requestBody: RequestBody = {
+        first_name: state.TeacherFirstName,
+        middle_name: state.TeacherMiddleName,
+        last_name: state.TeacherLastName,
+        phone_no: state.TeacherPhoneNo,
+        blood_group: state.TeacherBloodGroup,
+        DOB: state.TeacherDOB,
+        sex: state.TeacherSex,
+        email: state.TeacherEmail,
+        password: state.TeacherPassword,
+        branch_id: selectedBranchId,
+        profile_image: state.TeacherProfileCardFront,
+        aadhar_front: state.TeacherAadharCardFront,
+        aadhar_back: state.TeacherAadharCardBack,
+        voter_front: state.TeacherVoterCardFront,
+        voter_back: state.TeacherVoterCardBack,
+        pan_card: state.TeacherPanCardFront,
+        street: state.TeacherAddressStreet,
+        city: state.TeacherAddressCity,
+        state: state.TeacherAddressState,
+        area: state.TeacherAddressArea,
+        district: state.TeacherAddressDistrict,
+        pincode: state.TeacherAddressPincode,
+        country: state.TeacherAddressCountry,
+      };
+      if (state.TeacherPassportCardFront || state.TeacherDrivingCardFront) {
+        requestBody.optional_front =
+          state.TeacherPassportCardFront || state.TeacherDrivingCardFront;
+      }
+      if (state.TeacherDrivingCardBack) {
+        requestBody.optional_back = state.TeacherDrivingCardBack;
+      }
+      axios.postForm(`http:localhost:5000/teacher`, requestBody).then((res) => {
+        console.log(res.data);
+      });
     }
   };
+
+  const formType = "Teacher";
   return (
     <form method="POST">
       <span className="text-2xl font-bold">Teacher Form</span>
@@ -113,7 +134,7 @@ const TeacherForm = () => {
         <div className="flex gap-10">
           <Name
             isRequired={true}
-            formType="Teacher"
+            formType={formType}
             state={state}
             dispatch={dispatch}
           />
@@ -121,7 +142,7 @@ const TeacherForm = () => {
 
         <div className="flex gap-10">
           <PhoneNo
-            formType="Teacher"
+            formType={formType}
             state={state}
             dispatch={dispatch}
             isRequired={true}
@@ -131,7 +152,7 @@ const TeacherForm = () => {
         {/* Email */}
         <div className="flex gap-10">
           <Email
-            formType="Teacher"
+            formType={formType}
             state={state}
             dispatch={dispatch}
             isRequired={true}
@@ -141,7 +162,7 @@ const TeacherForm = () => {
         {/* Password */}
         <div className="flex gap-10">
           <Password
-            formType="Teacher"
+            formType={formType}
             state={state}
             dispatch={dispatch}
             isRequired={true}
@@ -305,9 +326,10 @@ const TeacherForm = () => {
         </div>
 
         {/* Address */}
-        <div className="flex flex-col gap-5">
+        <div className="flex mt-10 gap-5">
+          <span className="text-base w-32 font-semibold">{`Your Address:`}</span>
           <AddressFormDetails
-            formType="Teacher"
+            formType={formType}
             state={state}
             dispatch={dispatch}
           />
@@ -318,7 +340,7 @@ const TeacherForm = () => {
 
       <div className="flex justify-center">
         <button
-          onClick={printData}
+          onClick={sendTeacherData}
           className="bg-blue-600 text-white rounded-full px-10 py-2"
         >
           Submit
