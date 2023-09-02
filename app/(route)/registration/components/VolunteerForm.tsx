@@ -1,5 +1,5 @@
 // import React from "react";
-// import { BloodGroup, Email, IdProf, Name, PhoneNo } from "./FormComp";
+// import { BloodGroup, Email, Name, PhoneNo } from "./FormComp";
 // import { initialState } from "./InitialState";
 
 // const VolunteerFormReducer = (state: FormStateType, action: FormAction) => {
@@ -17,16 +17,19 @@
 //     initialState
 //   );
 //   return (
-//     <form method="POST">
+//     <form
+//       method="POST"
+//       className="max-w-screen-lg text-xl -ml-6 max-md:w-[100%] mx-auto px-4"
+//     >
 //       <span className="text-2xl font-bold">Volunteer Form</span>
 //       <div className="border w-full mt-5" />
-//       <div className="flex flex-col gap-5 p-10">
+//       <div className="flex flex-col gap-5 p-4 md:p-10">
 //         {/* Name */}
-//         <div className="flex gap-10">
+//         <div className="flex flex-col gap-2">
 //           <Name formType="Volunteer" state={state} dispatch={dispatch} />
 //         </div>
 
-//         <div className="flex gap-10">
+//         <div className="flex flex-col gap-2">
 //           <PhoneNo
 //             formType="Volunteer"
 //             state={state}
@@ -36,7 +39,7 @@
 //         </div>
 
 //         {/* Blood Group */}
-//         <div className="flex gap-9">
+//         <div className="flex flex-col gap-2">
 //           <BloodGroup
 //             formType="Volunteer"
 //             state={state}
@@ -45,7 +48,7 @@
 //           />
 //         </div>
 //         {/* Email */}
-//         <div className="flex gap-10">
+//         <div className="flex flex-col gap-2">
 //           <Email
 //             formType="Volunteer"
 //             state={state}
@@ -55,8 +58,8 @@
 //         </div>
 
 //         {/* Id Proof */}
-//         <div className="flex gap-6">
-//           <IdProf formType="Volunteer" state={state} dispatch={dispatch} />
+//         <div className="flex flex-col gap-2">
+//           <IdPr formType="Volunteer" state={state} dispatch={dispatch} />
 //         </div>
 //       </div>
 
