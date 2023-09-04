@@ -1,16 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import "@/app/components/style.css";
-import logo from "@/app/assets/logo.png";
+import logo from "@/app/assets/logo.svg";
 import Image from "next/image";
 import { AiOutlineMenu } from "react-icons/ai";
 import Dropdown from "@/app/components/Dropdown";
 import Link from "next/link";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { ContextAccess } from "../components/ContextAccess";
 import UserMenu from "../components/navbar/userMenu";
 import { Switch } from "@/components/ui/switch";
@@ -29,8 +24,7 @@ const Nav: React.FC = () => {
               <Image src={logo} alt="Blob" fill className="" />
             </div>
             <h1 className="max-sm:text-2xl uppercase font-bold text-3xl max-md:text-4xl font-serif">
-              <span className="text-orange-500 ">Jan</span>{" "}
-              <span className="text-[#036C93]">sevaa</span>{" "}
+              <span className="text-[#112A99] ">RSME</span>{" "}
             </h1>
           </div>
         </Link>
