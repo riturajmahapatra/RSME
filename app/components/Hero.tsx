@@ -97,7 +97,7 @@ const Hero = () => {
                 ? `With our Knowledge Equality Initiative, we're committed to LEARNING FOR ALL. We believe in inclusive education that nurtures children's minds and fosters growth.`
                 : `हमारे ज्ञान समानता पहल के साथ, हम सभी के लिए सीखने के लिए प्रतिबद्ध हैं। हम समावेशी शिक्षा में विश्वास रखते हैं जो बच्चों के मन को पोषण और विकास को बढ़ावा देती है।`
             }
-            images="/rsme/child-phone.jpg"
+            images="/rsme/child-school9.jpg"
           />
           <Cards
             heading={!isHindi ? `Empowerment Horizon` : `शक्तिपूर्ण क्षितिज`}
@@ -106,7 +106,7 @@ const Hero = () => {
                 ? `Through our Empowerment Horizon program, we're dedicated to EMPOWERING HER. We're on a mission to uplift young women and girls by engaging them in community-driven initiatives.`
                 : `हमारे शक्तिपूर्ण क्षितिज कार्यक्रम के माध्यम से, हम महिलाओं को सशक्त बनाने के लिए प्रतिबद्ध हैं। हम समुदाय द्वारा चलाए जाने वाले पहलों में उन्हें जोड़कर युवा महिलाओं और लड़कियों को उठाने के लिए एक मिशन पर हैं।`
             }
-            images="/rsme/child-shop.jpg"
+            images="/rsme/gurukul.jpg"
           />
           <Cards
             heading={!isHindi ? `Wellness Outreach` : `स्वास्थ्य पहुँच`}
@@ -115,7 +115,7 @@ const Hero = () => {
                 ? `Join us in our Wellness Outreach endeavor as we ensure WELLNESS ACCESS for all. Our focus is on bringing crucial medical services to remote and underserved communities.`
                 : `सभी के लिए स्वास्थ्य पहुँच सुनिश्चित करते हुए हमारे स्वास्थ्य पहुँच प्रयास में हमारे साथ जुड़ें। हमारा ध्यान दूरस्थ और असेवित समुदायों में आवश्यक चिकित्सा सेवाओं को लाने पर है।`
             }
-            images="/images/child3.jpg"
+            images="/rsme/child-school3.jpg"
           />
           <Cards
             heading={!isHindi ? `Prosperity Navigator` : `समृद्धि की ओर पथ`}
@@ -124,7 +124,7 @@ const Hero = () => {
                 ? `Embark on the PATH TO PROSPERITY with our Prosperity Navigator program. We're dedicated to imparting valuable skills and aiding the career journey of disadvantaged youth.`
                 : `हमारे समृद्धि नेविगेटर प्रोग्राम के साथ समृद्धि की ओर पथ पर अपनी यात्रा प्रारंभ करें। हम अवसरवादी युवाओं के कौशलों को प्रदान करने और उनकी कैरियर यात्रा में सहायता करने के लिए प्रतिबद्ध हैं।`
             }
-            images="/images/child4.jpg"
+            images="/rsme/child-green.jpg"
           />
         </div>
 
