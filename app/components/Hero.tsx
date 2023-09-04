@@ -90,61 +90,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* programms */}
-
-        <div className="mt-20  h-[30vh] flex flex-col gap-10 items-center w-full text-center">
-          <h1 className="text-[3rem] font-medium  ">
-            {!isHindi ? `Our Initiatives` : `हमारी पहलें`}
-          </h1>
-
-          <div className="  grid grid-cols-4 mx-20 max-xl:grid-cols-2 max-xl:gap-16 max-md:grid-cols-1 max-md:gap-14 max-sm:w-full max-sm:flex max-sm:flex-col max-sm:-ml-6">
-            <Herocard
-              heading={!isHindi ? `LEARNING FOR ALL` : `सभी के लिए सीखना`}
-              description={
-                !isHindi
-                  ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
-                  : `समावेशी शिक्षा, पोषण और बच्चों के समग्र विकास को बढ़ावा देना`
-              }
-              images="/images/vc.svg"
-              customClasses="h-20 max-md:absolute max-md:left-20 max-sm:block"
-              blob="/images/blob1.svg"
-            />
-            <Herocard
-              heading={!isHindi ? `WELLNESS ACCESS` : `स्वास्थ्य पहुँच`}
-              description={
-                !isHindi
-                  ? `Bringing essential medical services to remote and underserved communities`
-                  : `दूरस्थ और असेवित समुदायों में आवश्यक चिकित्सा सेवाओं को लाना`
-              }
-              images="/images/spa.svg"
-              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
-              blob="/images/blob2.svg"
-            />
-            <Herocard
-              heading={!isHindi ? `Learning For All` : `सभी के लिए सीखना`}
-              description={
-                !isHindi
-                  ? `Promoting inclusive education, nourishment, and comprehensive growth of children`
-                  : `समावेशी शिक्षा, पोषण और बच्चों के समग्र विकास को बढ़ावा देना `
-              }
-              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
-              images="/images/entrepreneurs.svg"
-              blob="/images/blob3.svg"
-            />
-            <Herocard
-              heading={!isHindi ? `PATH TO PROSPERITY` : `समृद्धि की ओर पथ`}
-              description={
-                !isHindi
-                  ? `Imparting skills and aiding the career journey of disadvantaged youth`
-                  : `अवसरवादी युवाओं के कौशलों को प्रदान करना और उनकी कैरियर यात्रा में सहायता करना`
-              }
-              customClasses="h-20  max-md:absolute max-md:left-20  max-sm:block"
-              images="/images/startup.svg"
-              blob="/images/blob4.svg"
-            />
-          </div>
-        </div>
-        {/*  lg:grid lg:grid-cols-4   max-md:mt-[65vh] max-md:justify-center max-sm:mt-[100vh] flex-wrap */}
         {/* cards */}
         <div className="flex my-20 justify-evenly mx-10 max-xl  lg:grid lg:grid-cols-4  max-xl:mt-[30vh] max-md:mt-[60vh] max-sm:justify-center  flex-wrap   gap-10 ">
           <Cards
@@ -248,14 +193,14 @@ const Hero = () => {
 
         {/* report raise */}
         <div className=" bottom-10 z-10 fixed right-10 ">
-          {/* <Link href={"/Report"}>
+          <Link href={"/Report"}>
             <button
               type="button"
               className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             >
               Report an Issue ?
             </button>
-          </Link> */}
+          </Link>
         </div>
       </main>
     </div>
