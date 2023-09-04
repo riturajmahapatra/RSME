@@ -63,8 +63,10 @@ const Form = () => {
       <form onSubmit={handleSubmit} className="">
         {" "}
         {/* add onsubmit using props */}
-        <h2 className="text-4xl font-semibold mb-4">Make a Donation</h2>
-        <div className="bg-white rounded shadow-md p-6 grid grid-cols-3 gap-5 w-full">
+        <h2 className="max-md:text-center text-4xl font-semibold mb-4">
+          Make a Donation
+        </h2>
+        <div className="bg-white rounded shadow-md p-6 grid max-md:grid-cols-1 grid-cols-3 gap-5 w-full">
           {/* Full Name Field */}
           <div className="mb-4">
             <label htmlFor="full_name" className="block font-medium">

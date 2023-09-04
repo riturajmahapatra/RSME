@@ -8,7 +8,7 @@ const page = () => {
   const { isHindi } = ContextAccess();
   /*   {!isHindi?``:``} */
   return (
-    <main className=" min-h-screen">
+    <main className="min-h-screen">
       <div className="">
         <div className="flex justify-center items-center ">
           <Image
