@@ -121,8 +121,12 @@
 /* footer */
 
 .footer-img {
-  background: rgb(250,114,104);
-background: linear-gradient(0deg, rgba(250,114,104,1) 35%, rgba(227,61,86,1) 100%);
+  background: rgb(104, 143, 250);
+  background: linear-gradient(
+    0deg,
+    rgb(45, 93, 181) 45%,
+    rgb(45, 66, 255) 100%
+  );
 }
 
 /* Media queries for different screen sizes */
