@@ -5,10 +5,11 @@ import Hero from "@/app/components/Hero";
 import Footer from "./(layout)/Footer";
 export default function Home() {
   const images: string[] = [
-    "/img1.jpg",
-    "/img2.jpg",
-    "/img3.jpg",
-    "/bacche.jpg",
+    "/rsme/child-school1.jpg",
+    "/rsme/child-school2.jpg",
+    "/rsme/child-school3.jpg",
+    "/rsme/child-school4.jpg",
+    "/rsme/child-school5.jpg",
   ];
 
   return (

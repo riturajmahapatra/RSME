@@ -24,7 +24,7 @@ const Nav: React.FC = () => {
               <Image src={logo} alt="Blob" fill className="" />
             </div>
             <h1 className="max-sm:text-2xl uppercase font-bold text-3xl max-md:text-4xl font-serif">
-              <span className="text-[#112A99] ">RSME</span>{" "}
+              <span className="text-[#112A45] ">RSME</span>{" "}
             </h1>
           </div>
         </Link>
@@ -37,22 +37,22 @@ const Nav: React.FC = () => {
               </h1>
             </div>
             <Link href={"/members"}>
-              <Button className="text-xs md:text-[1.1rem] font-bold bg-white hover:bg-white text-[#036c93] hover:text-orange-500">
+              <Button className="text-xs md:text-[1.1rem] font-bold bg-white hover:bg-white text-[#036c93] hover:text-blue-300">
                 Our Members
               </Button>
             </Link>
             <Link href={"/registration"}>
-              <Button className="text-xs md:text-[1.1rem] font-bold  bg-white hover:bg-white text-orange-500 hover:text-[#036c93]">
+              <Button className="text-xs md:text-[1.1rem] font-bold  bg-white hover:bg-white text-[#036c93]  hover:text-blue-300">
                 Registration
               </Button>
             </Link>
             <Link href={"/Aboutus"}>
-              <Button className="text-xs md:text-[1.1rem] font-bold bg-white hover:bg-white text-[#036c93] hover:text-orange-500">
+              <Button className="text-xs md:text-[1.1rem] font-bold bg-white hover:bg-white text-[#036c93] hover:text-blue-300">
                 About us
               </Button>
             </Link>
             <Link href={"/Events"}>
-              <Button className="text-xs md:text-[1.1rem] font-bold  bg-white hover:bg-white text-orange-500 hover:text-[#036c93]">
+              <Button className="text-xs md:text-[1.1rem] font-bold  bg-white hover:bg-white text-[#036c93]  hover:text-blue-300">
                 Events
               </Button>
             </Link>

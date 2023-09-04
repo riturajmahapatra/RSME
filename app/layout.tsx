@@ -29,7 +29,7 @@ export default async function RootLayout({
           <Nav />
 
           {children}
-          <div className=" bottom-10 z-10 fixed right-10 ">
+          <div className=" fixed bottom-10 z-10  right-10 ">
             <Link href={"/Report"}>
               <button
                 type="button"

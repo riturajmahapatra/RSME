@@ -7,6 +7,7 @@ import useEmblaCarousel, {
 
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import "@/app/components/style.css";
 
 type PropType = {
   images: string[];
@@ -37,18 +38,14 @@ const BannerCarousel: React.FC<PropType> = ({
         <div className="embla__container banner-embla__container flex cursor-grab touch-pan-y active:cursor-grabbing">
           {slides.map((index) => (
             <div className="banner-embla__slide " key={index}>
-              <Image
-                width={1000}
-                height={800}
-                className="banner-embla__slide__img block w-full   object-cover"
-                src={imageByIndex(index)}
-                alt="Carousel Images"
-              />
-              {/* <img
-                className=" w-full h-[70vh] object-cover aspect-video"
-                src={imageByIndex(index)}
-                alt="dkljasjkl;df"
-              /> */}
+              <div className="unset-img">
+                <Image
+                  alt="Carousel Images"
+                  src={imageByIndex(index)}
+                  layout="fill"
+                  className="custom-img"
+                />
+              </div>
             </div>
           ))}
         </div>

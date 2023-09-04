@@ -122,11 +122,7 @@
 
 .footer-img {
   background: rgb(104, 143, 250);
-  background: linear-gradient(
-    0deg,
-    rgb(45, 93, 181) 45%,
-    rgb(45, 66, 255) 100%
-  );
+  background: linear-gradient(0deg, rgb(70 105 169) 45%, rgb(76 87 195) 100%);
 }
 
 /* Media queries for different screen sizes */
@@ -171,3 +167,19 @@
 .footer-underline:hover::before {
   transform: scaleX(1);
 } */
+
+/* custom img IMAGE  */
+
+.custom-img {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: 60vh !important;
+}
+
+.unset-img {
+  width: 100%;
+}
+.unset-img > div {
+  position: unset !important;
+}

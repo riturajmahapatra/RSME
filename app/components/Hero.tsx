@@ -11,13 +11,11 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const footerimages: string[] = [
-    "/images/ImgCarousel/boy.jpg",
-    "/images/ImgCarousel/boy-student.jpg",
-    "/images/ImgCarousel/boy-student2.jpg",
-    "/images/ImgCarousel/chote-boys.jpg",
-    "/images/ImgCarousel/girl-student.jpg",
-    "/images/ImgCarousel/girl-student2.jpg",
-    "/images/ImgCarousel/hifi-child.jpg",
+    "/rsme/child-school7.jpg",
+    "/rsme/child-school8.jpg",
+    "/rsme/child-school9.jpg",
+    "/rsme/child-tounge-mono.jpg",
+    "/rsme/childs-standing.jpg",
   ];
 
   const { isHindi } = ContextAccess();
@@ -101,7 +99,7 @@ const Hero = () => {
                 ? `With our Knowledge Equality Initiative, we're committed to LEARNING FOR ALL. We believe in inclusive education that nurtures children's minds and fosters growth.`
                 : `हमारे ज्ञान समानता पहल के साथ, हम सभी के लिए सीखने के लिए प्रतिबद्ध हैं। हम समावेशी शिक्षा में विश्वास रखते हैं जो बच्चों के मन को पोषण और विकास को बढ़ावा देती है।`
             }
-            images="/images/child.jpg"
+            images="/rsme/child-phone.jpg"
           />
           <Cards
             heading={!isHindi ? `Empowerment Horizon` : `शक्तिपूर्ण क्षितिज`}
@@ -110,7 +108,7 @@ const Hero = () => {
                 ? `Through our Empowerment Horizon program, we're dedicated to EMPOWERING HER. We're on a mission to uplift young women and girls by engaging them in community-driven initiatives.`
                 : `हमारे शक्तिपूर्ण क्षितिज कार्यक्रम के माध्यम से, हम महिलाओं को सशक्त बनाने के लिए प्रतिबद्ध हैं। हम समुदाय द्वारा चलाए जाने वाले पहलों में उन्हें जोड़कर युवा महिलाओं और लड़कियों को उठाने के लिए एक मिशन पर हैं।`
             }
-            images="/images/child2.jpg"
+            images="/rsme/child-shop.jpg"
           />
           <Cards
             heading={!isHindi ? `Wellness Outreach` : `स्वास्थ्य पहुँच`}
@@ -192,16 +190,7 @@ const Hero = () => {
         </div>
 
         {/* report raise */}
-        <div className=" bottom-10 z-10 fixed right-10 ">
-          <Link href={"/Report"}>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-            >
-              Report an Issue ?
-            </button>
-          </Link>
-        </div>
+        <div className=" bottom-10 z-10 fixed right-10 "></div>
       </main>
     </div>
   );
