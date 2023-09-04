@@ -36,8 +36,8 @@ const Hero = () => {
             </span>
             &nbsp;
             {!isHindi
-              ? `Through their initiatives, they provide crucial medical aid, facilitate quality education for students, and offer training programs to equip individuals with essential skills. Jansevaa's commitment to making a positive impact on society is reflected in their dedication to these key areas of assistance.`
-              : `उनकी पहलों के माध्यम से, वे महत्वपूर्ण चिकित्सा सहायता प्रदान करते हैं, छात्रों के लिए गुणवत्तापूर्ण शिक्षा को सुनिश्चित करते हैं, और आवश्यक कौशलों से व्यक्तियों को संपन्न करने के लिए प्रशिक्षण कार्यक्रम प्रदान करते हैं। जनसेवा का समाज पर पॉजिटिव प्रभाव डालने के लिए किए गए प्रतिबद्धता का उल्लेख उनकी इन महत्वपूर्ण सहायता क्षेत्रों में दिखता है।`}
+              ? `Through their initiatives, they provide crucial medical aid, facilitate quality education for students, and offer training programs to equip individuals with essential skills. RSME's commitment to making a positive impact on society is reflected in their dedication to these key areas of assistance.`
+              : `उनकी पहलों के माध्यम से, वे महत्वपूर्ण चिकित्सा सहायता प्रदान करते हैं, छात्रों के लिए गुणवत्तापूर्ण शिक्षा को सुनिश्चित करते हैं, और आवश्यक कौशलों से व्यक्तियों को संपन्न करने के लिए प्रशिक्षण कार्यक्रम प्रदान करते हैं। आरएसएमई का समाज पर पॉजिटिव प्रभाव डालने के लिए किए गए प्रतिबद्धता का उल्लेख उनकी इन महत्वपूर्ण सहायता क्षेत्रों में दिखता है।`}
           </h1>
         </div>
 

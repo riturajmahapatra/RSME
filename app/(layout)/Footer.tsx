@@ -1,5 +1,6 @@
 import React from "react";
 import "@/app/components/style.css";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -9,10 +10,10 @@ const Footer = () => {
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
               <h4 className="text-3xl font-semibold text-blueGray-700 text-white">
-                Let's keep in touch!
+                {`Let's keep in touch!`}
               </h4>
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600 text-white">
-                Find us on any of these platforms, we respond 1-2 business days.
+                {`Find us on any of these platforms, we respond 1-2 business days.`}
               </h5>
               <div className="mt-6 lg:mb-0 mb-6 flex gap-8">
                 <a href="https://www.twitter.com/">
@@ -20,10 +21,12 @@ const Footer = () => {
                     className=" text-lightBlue-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                     type="button"
                   >
-                    <img
+                    <Image
                       src="/images/socials/twitter.svg"
                       alt="logo"
                       className="w-[90%]"
+                      width={90}
+                      height={90}
                     />
                   </button>
                 </a>
@@ -32,10 +35,12 @@ const Footer = () => {
                     className=" text-lightBlue-600 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                     type="button"
                   >
-                    <img
+                    <Image
                       src="/images/socials/facebook.svg"
                       alt="logo"
+                      width={90}
                       className="w-[80%]"
+                      height={90}
                     />
                   </button>
                 </a>
@@ -44,7 +49,12 @@ const Footer = () => {
                     className=" text-pink-400 font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                     type="button"
                   >
-                    <img src="/images/socials/youtube.svg" alt="logo" />
+                    <Image
+                      src="/images/socials/youtube.svg"
+                      alt="logo"
+                      width={90}
+                      height={90}
+                    />
                   </button>
                 </a>
                 <a href="https://www.instagram.com/">
@@ -52,10 +62,12 @@ const Footer = () => {
                     className=" text-blueGray-800  font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                     type="button"
                   >
-                    <img
+                    <Image
                       src="/images/socials/instagram.svg"
                       alt="logo"
                       className="w-[80%]"
+                      width={90}
+                      height={90}
                     />
                   </button>
                 </a>
