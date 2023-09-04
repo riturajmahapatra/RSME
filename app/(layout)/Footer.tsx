@@ -121,7 +121,7 @@ const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm text-white"
                         href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
                       >
-                        jansevaa31@gmail.com
+                        rsmefoundation88@gmail.com
                       </a>
                     </li>
                     <li>
@@ -143,7 +143,7 @@ const Footer = () => {
               <div className="text-sm text-blueGray-500 font-semibold py-1 text-white">
                 Copyright ©{" "}
                 <span id="get-current-year">
-                  2023 Jan Sevaa. All rights reserved.
+                  2023 RSME. All rights reserved.
                 </span>
               </div>
             </div>

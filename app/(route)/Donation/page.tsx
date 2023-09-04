@@ -14,8 +14,8 @@ const page = () => {
           <Image
             width={1000}
             height={800}
-            className="h-[80vh] w-full object-cover "
-            src="/donation-baccha.jpg"
+            className="h-[80vh] w-full object-cover object-top"
+            src="/donation-nigga.jpg"
             alt="VHL GROUP"
           />
         </div>
@@ -23,9 +23,9 @@ const page = () => {
         <div className="container mx-auto p-8">
           <h1 className="text-3xl font-semibold mb-4">
             {!isHindi
-              ? `Supporting Positive Change: Donate to Jansevaa's Initiatives
+              ? `Supporting Positive Change: Donate to RSME's Initiatives
 `
-              : `सकारात्मक परिवर्तन का समर्थन: जनसेवा की पहल के लिए दान करें
+              : `सकारात्मक परिवर्तन का समर्थन: आरएसएमई की पहल के लिए दान करें
 `}
           </h1>
           <p className="mb-6">
@@ -33,23 +33,25 @@ const page = () => {
               ? `Are you passionate about creating a positive impact in the world? Do
             you believe in the power of education, healthcare, and community
             empowerment? If so, here's an opportunity to make a meaningful
-            difference by supporting Jansevaa's initiatives through your
+            difference by supporting RSME's initiatives through your
             generous donations.`
-              : `क्या आप दुनिया में सकारात्मक प्रभाव पैदा करने को लेकर उत्साहित हैं? क्या आप शिक्षा, स्वास्थ्य देखभाल और सामुदायिक सशक्तिकरण की शक्ति में विश्वास करते हैं? यदि हां, तो यहां आपके उदार दान के माध्यम से जनसेवा की पहल का समर्थन करके एक सार्थक बदलाव लाने का अवसर है।`}
+              : `क्या आप दुनिया में सकारात्मक प्रभाव पैदा करने को लेकर उत्साहित हैं? क्या आप शिक्षा, स्वास्थ्य देखभाल और सामुदायिक सशक्तिकरण की शक्ति में विश्वास करते हैं? यदि हां, तो यहां आपके उदार दान के माध्यम से आरएसएमई की पहल का समर्थन करके एक सार्थक बदलाव लाने का अवसर है।`}
           </p>
 
           <div className="bg-white rounded shadow-md p-6">
             <h2 className="text-xl font-semibold mb-4">
-              {!isHindi ? `Why Donate to Jansevaa?` : `जनसेवा को दान क्यों?`}
+              {!isHindi
+                ? `Why Donate to Raghunath Singh Medical and Educational Foundation?`
+                : `रघुनाथ सिंह मेडिकल एंड एजुकेशनल फाउंडेशन को दान क्यों?`}
             </h2>
             <p>
               {!isHindi
-                ? `Jansevaa is a renowned NGO foundation that stands committed to
+                ? `Raghunath Singh Medical and Educational is a renowned NGO foundation that stands committed to
               uplifting societies and individuals in need. With a multifaceted
               approach encompassing medical assistance, student education, and
-              training programs, Jansevaa strives to create a lasting positive
+              training programs, Raghunath Singh Medical and Educational strives to create a lasting positive
               impact on the lives of countless people.`
-                : `जनसेवा एक प्रसिद्ध एनजीओ फाउंडेशन है जो जरूरत में समाजों और व्यक्तियों के उत्थान के लिए प्रतिबद्ध है. चिकित्सा सहायता, छात्र शिक्षा और प्रशिक्षण कार्यक्रमों को शामिल करने वाले एक बहुमुखी दृष्टिकोण के साथ, जनसेवा अनगिनत लोगों के जीवन पर एक स्थायी सकारात्मक प्रभाव बनाने का प्रयास करता है.`}
+                : `रघुनाथ सिंह मेडिकल एंड एजुकेशनल फाउंडेशन एक प्रसिद्ध एनजीओ फाउंडेशन है जो जरूरत में समाजों और व्यक्तियों के उत्थान के लिए प्रतिबद्ध है. चिकित्सा सहायता, छात्र शिक्षा और प्रशिक्षण कार्यक्रमों को शामिल करने वाले एक बहुमुखी दृष्टिकोण के साथ, रघुनाथ सिंह मेडिकल एंड एजुकेशनल फाउंडेशन अनगिनत लोगों के जीवन पर एक स्थायी सकारात्मक प्रभाव बनाने का प्रयास करता है.`}
             </p>
           </div>
 
@@ -77,7 +79,7 @@ const page = () => {
                     : `शिक्षा को सशक्त बनाना:`}
                 </strong>
                 {!isHindi
-                  ? `By donating to Jansevaa, you contribute to
+                  ? `By donating to Raghunath Singh Medical and Educational, you contribute to
                 enhancing educational opportunities for students in
                 disadvantaged areas. Your generosity can pave the way for
                 students to access quality education and pursue their dreams.`
@@ -90,11 +92,11 @@ const page = () => {
                     : `कौशल विकास को बढ़ावा`}
                 </strong>
                 {!isHindi
-                  ? `Jansevaa's training programs equip
+                  ? `RSME's training programs equip
                 individuals with essential skills for personal and professional
                 growth. Your donation helps create pathways to sustainable
                 livelihoods and economic independence.`
-                  : `जनसेवा के प्रशिक्षण कार्यक्रम व्यक्तियों को व्यक्तिगत और व्यावसायिक विकास के लिए आवश्यक कौशल से लैस करते हैं। आपका दान स्थायी आजीविका और आर्थिक स्वतंत्रता के मार्ग बनाने में मदद करता है।`}
+                  : `आरएसएमई के प्रशिक्षण कार्यक्रम व्यक्तियों को व्यक्तिगत और व्यावसायिक विकास के लिए आवश्यक कौशल से लैस करते हैं। आपका दान स्थायी आजीविका और आर्थिक स्वतंत्रता के मार्ग बनाने में मदद करता है।`}
               </li>
             </ul>
           </div>
