@@ -4,10 +4,8 @@ import Herocard from "./Herocard";
 import Cards from "./Cards";
 import BannerCarousel from "@/components/ui/carousel";
 import AlignmentCards from "./AlignmentCards";
-import { Separator } from "@/components/ui/separator";
 import { ContextAccess } from "./ContextAccess";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const footerimages: string[] = [
@@ -30,8 +28,8 @@ const Hero = () => {
         <div className="flex flex-1 justify-center text-center ">
           <h1 className="text-[1.2rem] w-[90%] mt-8  mx-auto md:mt-20">
             {!isHindi
-              ? `Jansevaa Foundation is an NGO that offers comprehensive support in the fields of`
-              : `जनसेवा फाउंडेशन एक गैर सरकारी संगठन (एनजीओ) है`}
+              ? `Raghunath Singh Medical and Educational Foundation is an NGO that offers comprehensive support in the fields of`
+              : `रघुनाथ सिंह मेडिकल एंड एजुकेशनल फाउंडेशन एक गैर सरकारी संगठन (एनजीओ) है`}
             &nbsp;
             <span className="font-semibold bg-yellow-200 ">
               {!isHindi
@@ -157,8 +155,8 @@ const Hero = () => {
           <AlignmentCards
             heading={
               !isHindi
-                ? `Jansevaa is a notable NGO foundation renowned for its multifaceted support in critical areas such as medical aid, student education, and training initiatives. Their profound commitment to creating a positive societal impact is exemplified through their dedicated efforts in these key domains.`
-                : `जनसेवा एक प्रसिद्ध एनजीओ संस्थान है जो चिकित्सा सहायता, छात्र शिक्षा और प्रशिक्षण पहलों जैसे महत्वपूर्ण क्षेत्रों में अपने बहुमुखी समर्थन के लिए प्रसिद्ध है। उनकी सकारात्मक सामाजिक प्रभाव बनाने की गहरी प्रतिबद्धता इन महत्वपूर्ण क्षेत्रों में उनके समर्पित प्रयासों के माध्यम से दिखाई देती है।`
+                ? `Raghunath Singh Medical and Educational Foundation is a notable NGO foundation renowned for its multifaceted support in critical areas such as medical aid, student education, and training initiatives. Their profound commitment to creating a positive societal impact is exemplified through their dedicated efforts in these key domains.`
+                : `रघुनाथ सिंह मेडिकल एंड एजुकेशनल फाउंडेशन एक प्रसिद्ध एनजीओ संस्थान है जो चिकित्सा सहायता, छात्र शिक्षा और प्रशिक्षण पहलों जैसे महत्वपूर्ण क्षेत्रों में अपने बहुमुखी समर्थन के लिए प्रसिद्ध है। उनकी सकारात्मक सामाजिक प्रभाव बनाने की गहरी प्रतिबद्धता इन महत्वपूर्ण क्षेत्रों में उनके समर्पित प्रयासों के माध्यम से दिखाई देती है।`
             }
             /*   description="no desc" */
             images="/img1.jpg"
@@ -169,7 +167,7 @@ const Hero = () => {
           <AlignmentCards
             heading={
               !isHindi
-                ? `Through their comprehensive approach, Jansevaa offers vital medical assistance, ensures access to quality education for students, and imparts essential skills through various training programs.`
+                ? `Through their comprehensive approach,  offers vital medical assistance, ensures access to quality education for students, and imparts essential skills through various training programs.`
                 : `अपने व्यापक दृष्टिकोण के माध्यम से, जनसेवा महत्वपूर्ण चिकित्सा सहायता प्रदान करता है, छात्रों के लिए गुणवत्ता शिक्षा की पहुँच सुनिश्चित करता है, और विभिन्न प्रशिक्षण कार्यक्रमों के माध्यम से आवश्यक कौशलों को प्रदान करता है।`
             }
             images="/img2.jpg"

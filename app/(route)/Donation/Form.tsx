@@ -126,7 +126,7 @@ const Form = () => {
               id="email"
               name="email"
               className="border rounded p-2 w-full"
-              placeholder="jansevaa31@gmail.com"
+              placeholder="rsmefoundation88@gmail.com"
               required
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
