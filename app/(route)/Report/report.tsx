@@ -8,60 +8,33 @@ import { useState } from "react";
  */
 
 const Report = () => {
-  const [fullName, setFullName] = useState<string>("");
-  const [phone_no, setNumber] = useState<number | undefined>();
-  const [userEmail, setUserEmail] = useState<string>("");
-  const [textArea, setTextArea] = useState<string>("");
-  const handleSubmit = async (e: React.FormEvent) => {
+  const [reportFormData, setreportFormData] = useState({
+    fullName: "",
+    phone_no: "",
+    userEmail: "",
+    textArea: "",
+  });
+
+  const handleSubmit = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setreportFormData({ ...reportFormData, [name]: value });
+  };
+
+  // Data sending to backend
+  const sendReportData = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
-
-    if (!fullName || !phone_no || !userEmail || !textArea) {
-      console.log("All fields are required");
-      return;
-    }
-    const response = await axios.post(
-      "http://localhost:5000/reporters",
-      {
-        full_name: fullName,
-        phone_no: String(phone_no),
-        email: userEmail,
-        description: textArea,
-      },
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*", // Replace with your allowed origin(s)
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Content-Type": "application/json",
-          // Add any other CORS headers you need
-        },
-      }
-    );
-
-    console.log(response.data.message);
-    console.log(response.data);
-    // BranchDummyData = response.data;
-    // setBranchLoading(false);
-    // } catch (error) {
-    //   if (error.response) {
-    //     // The request was made, but the server responded with an error status code
-    //     console.error("Server responded with error:", error.response.status);
-    //     console.error("Error data:", error.response.data);
-    //   } else if (error.request) {
-    //     // The request was made, but no response was received (network error)
-    //     console.error("No response received from the server:", error.request);
-    //   } else {
-    //     // Something else happened while setting up the request (client-side error)
-    //     console.error("Error while setting up the request:", error.message);
-    //   }
-    //   console.error("Error:", error);
-    //   // Handle errors here and setBranchLoading(false) if needed
-    // }
+    console.log("From Data: ", reportFormData);
   };
 
   return (
     <div className="container mx-auto p-4 sm:p-8">
-      <form onSubmit={handleSubmit} className="flex justify-center mt-[8vh]">
+      <form className="flex justify-center mt-[8vh]">
         <div className="bg-white max-md:w-96 rounded shadow-md p-4 sm:p-6 grid grid-cols-1 gap-4 sm:gap-6 sm:w-2/3">
           <h2 className="text-2xl sm:text-4xl font-semibold mb-4">
             Raise an Issue
@@ -75,12 +48,12 @@ const Report = () => {
             <input
               type="string"
               id="full_name"
-              name="full_name"
+              name="fullName"
               className="border rounded p-2 w-full"
               placeholder="Mukesh"
-              value={fullName}
+              value={reportFormData.fullName}
               required
-              onChange={(e) => setFullName(e.target.value)}
+              onChange={handleSubmit}
             />
           </div>
 
@@ -96,8 +69,8 @@ const Report = () => {
               className="border rounded p-2 w-full"
               placeholder="000-000-0000"
               required
-              value={phone_no}
-              onChange={(e) => setNumber(e.target.valueAsNumber)}
+              value={reportFormData.phone_no}
+              onChange={handleSubmit}
             />
           </div>
 
@@ -112,9 +85,9 @@ const Report = () => {
               name="email"
               className="border rounded p-2 w-full"
               placeholder="JohnDoe@gmail.com"
-              value={userEmail}
+              value={reportFormData.userEmail}
               required
-              onChange={(e) => setUserEmail(e.target.value)}
+              onChange={handleSubmit}
             />
           </div>
 
@@ -131,15 +104,16 @@ const Report = () => {
               rows={5}
               className="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Describe your complaint within 250 words"
-              value={textArea}
+              value={reportFormData.textArea}
               required
-              onChange={(e) => setTextArea(e.target.value)}
+              onChange={handleSubmit}
             />
           </div>
           <div>
             <button
               type="submit"
               className="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={sendReportData}
             >
               Submit
             </button>

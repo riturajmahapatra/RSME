@@ -157,3 +157,18 @@ interface RequestBody {
   pincode: number;
   country: string;
 }
+
+interface donationFormDataType {
+  fullName: string;
+  phone_no: string;
+  donationAmt: number;
+  userEmail: string;
+  DOB: string;
+  sex: string;
+  panCard: string;
+  street: string;
+  city: string;
+  state: string;
+  country: string;
+  pincode: string;
+}
